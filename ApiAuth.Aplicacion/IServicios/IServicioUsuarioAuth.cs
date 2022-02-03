@@ -8,6 +8,6 @@ namespace ApiAuth.Aplicacion
 {
     public interface IServicioUsuarioAuth
     {
-        public void ValidarUsuario(string usuario, string contrasena);
+        DtoUsuarioLoginRespuesta ValidarUsuario(string usuario, string contrasena);
     }
 }

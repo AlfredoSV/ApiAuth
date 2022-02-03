@@ -57,3 +57,7 @@ C:\Users\Alfredo\Source\Repos\AlfredoSV\ApiAuth\ApiAuth\obj\Debug\net5.0\ApiAuth
 C:\Users\Alfredo\Source\Repos\AlfredoSV\ApiAuth\ApiAuth\obj\Debug\net5.0\ref\ApiAuth.dll
 C:\Users\Alfredo\Source\Repos\AlfredoSV\ApiAuth\ApiAuth\obj\Debug\net5.0\ApiAuth.pdb
 C:\Users\Alfredo\Source\Repos\AlfredoSV\ApiAuth\ApiAuth\obj\Debug\net5.0\ApiAuth.genruntimeconfig.cache
+C:\Users\Alfredo\Source\Repos\AlfredoSV\ApiAuth\ApiAuth\bin\Debug\net5.0\ApiAuth.Dominio.dll
+C:\Users\Alfredo\Source\Repos\AlfredoSV\ApiAuth\ApiAuth\bin\Debug\net5.0\ApiAuth.Infraestructura.dll
+C:\Users\Alfredo\Source\Repos\AlfredoSV\ApiAuth\ApiAuth\bin\Debug\net5.0\ApiAuth.Dominio.pdb
+C:\Users\Alfredo\Source\Repos\AlfredoSV\ApiAuth\ApiAuth\bin\Debug\net5.0\ApiAuth.Infraestructura.pdb

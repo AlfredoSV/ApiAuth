@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ApiAuth.Aplicacion;
+using ApiAuth.Dominio;
+using ApiAuth.Infraestructura;
 
 namespace ApiAuth
 {
@@ -28,8 +30,11 @@ namespace ApiAuth
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IServicioUsuarioAuth, ServicioUsuarioAuth>();
+
+            services.AddTransient<IConsultarUsuarios, ConsultarUsuarios>();
+
             services.AddControllers();
-            
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiAuth", Version = "v1" });

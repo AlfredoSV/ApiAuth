@@ -8,6 +8,6 @@ namespace ApiAuth.Dominio
 {
     public interface IConsultarUsuarios
     {
-        void UsuarioPorId();
+        Usuario validarUsuarioPorUsuarioYContrasenia(string correo, string contrasenia);
     }
 }
