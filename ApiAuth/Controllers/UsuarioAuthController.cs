@@ -19,8 +19,8 @@ namespace ApiAuth.Controllers
         {
             try
             {
-                _ServicioUsuarioAuth.ValidarUsuario(dtoUsuatioLogin.CorreoUsuario, dtoUsuatioLogin.ContrasenaUsuario);
-                return Json(new { Nombre = "Alfredo" });
+
+                return Json(_ServicioUsuarioAuth.ValidarUsuario(dtoUsuatioLogin.CorreoUsuario, dtoUsuatioLogin.ContrasenaUsuario));
             }
             catch (Exception e)
             {

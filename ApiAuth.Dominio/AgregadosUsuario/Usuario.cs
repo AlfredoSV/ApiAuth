@@ -8,15 +8,15 @@ namespace ApiAuth.Dominio
 {
     public class Usuario
     {
-        public Guid Id { get; set; }
+        public Guid IdUsuario { get; set; }
 
-        public string Correo { get; set; }
+        public string CorreoUsuario { get; set; }
 
 
-        public Usuario(Guid id, string correo)
+        public Usuario(Guid idUsuario, string correoUsuario)
         {
-            Id = id;
-            Correo = correo;
+            IdUsuario = idUsuario;
+            CorreoUsuario = correoUsuario;
 
         }
 

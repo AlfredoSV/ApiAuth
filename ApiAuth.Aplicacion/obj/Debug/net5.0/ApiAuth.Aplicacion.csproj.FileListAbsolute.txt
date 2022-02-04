@@ -22,3 +22,6 @@ C:\Users\Alfredo\Source\Repos\AlfredoSV\ApiAuth\ApiAuth.Aplicacion\obj\Debug\net
 C:\Users\Alfredo\Source\Repos\AlfredoSV\ApiAuth\ApiAuth.Aplicacion\obj\Debug\net5.0\ApiAuth.Aplicacion.dll
 C:\Users\Alfredo\Source\Repos\AlfredoSV\ApiAuth\ApiAuth.Aplicacion\obj\Debug\net5.0\ref\ApiAuth.Aplicacion.dll
 C:\Users\Alfredo\Source\Repos\AlfredoSV\ApiAuth\ApiAuth.Aplicacion\obj\Debug\net5.0\ApiAuth.Aplicacion.pdb
+C:\Users\Alfredo\Source\Repos\AlfredoSV\ApiAuth\ApiAuth.Aplicacion\bin\Debug\net5.0\ApiAuth.Dominio.dll
+C:\Users\Alfredo\Source\Repos\AlfredoSV\ApiAuth\ApiAuth.Aplicacion\bin\Debug\net5.0\ApiAuth.Dominio.pdb
+C:\Users\Alfredo\Source\Repos\AlfredoSV\ApiAuth\ApiAuth.Aplicacion\obj\Debug\net5.0\ApiAuth.Aplicacion.csproj.CopyComplete

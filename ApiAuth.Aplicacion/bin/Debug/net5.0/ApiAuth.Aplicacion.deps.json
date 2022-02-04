@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v5.0": {
       "ApiAuth.Aplicacion/1.0.0": {
+        "dependencies": {
+          "ApiAuth.Dominio": "1.0.0"
+        },
         "runtime": {
           "ApiAuth.Aplicacion.dll": {}
+        }
+      },
+      "ApiAuth.Dominio/1.0.0": {
+        "runtime": {
+          "ApiAuth.Dominio.dll": {}
         }
       }
     }
   },
   "libraries": {
     "ApiAuth.Aplicacion/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ApiAuth.Dominio/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -10,9 +10,11 @@ namespace ApiAuth.Aplicacion
     public class ServicioUsuarioAuth : IServicioUsuarioAuth
     {
         private IConsultarUsuarios _consultarUsuarios { get; set; }
-        public ServicioUsuarioAuth(IConsultarUsuarios consultarUsuarios)
+        private IServicioToken _servicioToken { get; set; }
+        public ServicioUsuarioAuth(IConsultarUsuarios consultarUsuarios, IServicioToken servicioToken)
         {
             _consultarUsuarios = consultarUsuarios;
+            _servicioToken = servicioToken;
         }
         public DtoUsuarioLoginRespuesta ValidarUsuario(string usuario, string contrasenia)
         {
@@ -21,14 +23,19 @@ namespace ApiAuth.Aplicacion
             if (usuarioRes == null)
                 throw new Exception("Credenciales no validas");
 
+
+
+            var token = _servicioToken.GenerarToken();
+
+
             var dtoUsuarioRes = new DtoUsuarioLoginRespuesta()
             {
-                Id = usuarioRes.Id,
-                Correo = usuarioRes.Correo,
-                TokenSesion = string.Empty
+                Id = usuarioRes.IdUsuario,
+                Correo = usuarioRes.CorreoUsuario,
+                TokenSesion = token
             };
 
-            return null;
+            return dtoUsuarioRes;
 
         }
     }

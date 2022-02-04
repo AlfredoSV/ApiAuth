@@ -33,6 +33,10 @@ namespace ApiAuth
 
             services.AddTransient<IConsultarUsuarios, ConsultarUsuarios>();
 
+            services.AddTransient<IServicioToken, ServicioToken>();
+
+            services.AddScoped(cadConex => new string(Configuration.GetConnectionString("bd")));
+
             services.AddControllers();
 
             services.AddSwaggerGen(c =>

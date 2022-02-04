@@ -18,12 +18,12 @@ namespace ApiAuth.Infraestructura
         }
         public Usuario validarUsuarioPorUsuarioYContrasenia(string correo, string contrasenia)
         {
-            var sql = @"";
+            var sql = @"SELECT idUsuario, correoUsuario from usuario where correoUsuario = @correoUsuario and contraseniaUsuario = @contraseniaUsuario";
             try
             {
                 using (var con = new SqlConnection(_cadConex))
                 {
-                    return con.Query<Usuario>(sql, new { correo, contrasenia }).FirstOrDefault();
+                    return con.Query<Usuario>(sql, new { correoUsuario = correo, contraseniaUsuario = contrasenia }).FirstOrDefault();
 
                 }
             }
