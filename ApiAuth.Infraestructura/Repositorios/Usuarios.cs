@@ -9,14 +9,14 @@ using Dapper;
 
 namespace ApiAuth.Infraestructura
 {
-    public class ConsultarUsuarios : IConsultarUsuarios
+    public class Usuarios : IUsuarios
     {
         private string _cadConex { get; set; }
-        public ConsultarUsuarios(string cadConex)
+        public Usuarios(string cadConex)
         {
             _cadConex = cadConex;
         }
-        public Usuario validarUsuarioPorUsuarioYContrasenia(string correo, string contrasenia)
+        public Usuario ValidarUsuarioPorUsuarioYContrasenia(string correo, string contrasenia)
         {
             var sql = @"SELECT idUsuario, correoUsuario from usuario where correoUsuario = @correoUsuario and contraseniaUsuario = @contraseniaUsuario";
             try
@@ -25,6 +25,22 @@ namespace ApiAuth.Infraestructura
                 {
                     return con.Query<Usuario>(sql, new { correoUsuario = correo, contraseniaUsuario = contrasenia }).FirstOrDefault();
 
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        public void GuardarTokenUsuario(AgregadoToken tokenUsuario)
+        {
+            var sql = @"INSERT INTO usuarioToken VALUES(@idToken,@idUsuario,@token,@fechaAltaToken,@fechaVencimientoToken);";
+            try
+            {
+                using (var con = new SqlConnection(_cadConex))
+                {
+                    con.Query(sql, tokenUsuario);
                 }
             }
             catch (Exception e)

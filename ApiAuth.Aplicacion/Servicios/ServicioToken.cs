@@ -9,7 +9,13 @@ namespace ApiAuth.Aplicacion
 {
     public class ServicioToken : IServicioToken
     {
+        private IUsuarios _usuarios { get; set; }
 
+        public ServicioToken(IUsuarios consultarUsuarios)
+        {
+            _usuarios = consultarUsuarios;
+
+        }
         public string GenerarToken()
         {
             var token = string.Empty;
@@ -22,9 +28,9 @@ namespace ApiAuth.Aplicacion
             return token;
         }
 
-        public void GuardarToken(Token token)
+        public void GuardarTokenUsuario(AgregadoToken token)
         {
-
+            _usuarios.GuardarTokenUsuario(token);
         }
     }
 }

@@ -31,7 +31,7 @@ namespace ApiAuth
         {
             services.AddTransient<IServicioUsuarioAuth, ServicioUsuarioAuth>();
 
-            services.AddTransient<IConsultarUsuarios, ConsultarUsuarios>();
+            services.AddTransient<IUsuarios, Usuarios>();
 
             services.AddTransient<IServicioToken, ServicioToken>();
 
