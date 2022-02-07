@@ -12,5 +12,17 @@ namespace ApiAuth.Dominio
         public DateTime FechaExpiracion { get; set; }
         public Guid IdUsuario { get; set; }
 
+        public Token(string valor, DateTime fechaExpiracion, Guid idUsuario)
+        {
+
+            Valor = valor;
+            FechaExpiracion = fechaExpiracion;
+            IdUsuario = idUsuario;
+        }
+
+        public static Token Create(string valor, DateTime fechaExpiracion, Guid idUsuario)
+        {
+            return new Token(valor, fechaExpiracion, idUsuario);
+        }
     }
 }

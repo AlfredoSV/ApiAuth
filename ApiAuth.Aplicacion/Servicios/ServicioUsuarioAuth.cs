@@ -24,15 +24,16 @@ namespace ApiAuth.Aplicacion
                 throw new Exception("Credenciales no validas");
 
 
+            var fechaExpiracion = DateTime.Now.AddDays(1);
 
-            var token = _servicioToken.GenerarToken();
+            var token = Token.Create(_servicioToken.GenerarToken(), fechaExpiracion, usuarioRes.IdUsuario);
 
 
             var dtoUsuarioRes = new DtoUsuarioLoginRespuesta()
             {
                 Id = usuarioRes.IdUsuario,
                 Correo = usuarioRes.CorreoUsuario,
-                TokenSesion = token
+                TokenSesion = token.Valor
             };
 
             return dtoUsuarioRes;
