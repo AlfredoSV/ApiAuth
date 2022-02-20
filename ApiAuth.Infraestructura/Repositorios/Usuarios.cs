@@ -48,5 +48,10 @@ namespace ApiAuth.Infraestructura
                 throw;
             }
         }
+
+        public Usuario ObtenerUsuarioPorId(Guid idUsuario)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

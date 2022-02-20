@@ -29,5 +29,21 @@ namespace ApiAuth.Controllers
             }
 
         }
+
+        [HttpPost("[action]")]
+        public IActionResult ValidarToken(DtoUsuarioToken dtoUsuarioToken)
+        {
+            try
+            {
+                return null;
+                //return Json(_ServicioUsuarioAuth.ValidarUsuario(dtoUsuatioLogin.CorreoUsuario, dtoUsuatioLogin.ContrasenaUsuario));
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+
+        }
     }
 }

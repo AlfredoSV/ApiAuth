@@ -43,5 +43,14 @@ namespace ApiAuth.Aplicacion
             return dtoUsuarioRes;
 
         }
+
+        public void ValidarToken(Guid idUsuario, string correo, string token)
+        {
+
+            var usuario = _usuarios.ObtenerUsuarioPorId(idUsuario);
+
+
+
+        }
     }
 }
