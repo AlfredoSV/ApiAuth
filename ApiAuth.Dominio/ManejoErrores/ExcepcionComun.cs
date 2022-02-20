@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExcepcionComun
+namespace Dominio.ExcepcionComun
 {
-    class ExcepcionComun : Exception
+    public class ExcepcionComun : Exception
     {
         public string Titulo { get; set; }
         public string Detalle { get; set; }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ApiAuth.Aplicacion;
 using System;
+using Dominio.ExcepcionComun;
 
 namespace ApiAuth.Controllers
 {
@@ -35,13 +36,17 @@ namespace ApiAuth.Controllers
         {
             try
             {
-                throw new IndexOutOfRangeException();
+                throw new ExcepcionComun("Error", "DetalleError");
                 return RegresarRespuestaHttpCorrecta();
+            }
+            catch (ExcepcionComun e)
+            {
+
+                return RegresarRespuestaIncorrecta("ValidarToken", e);
             }
             catch (Exception e)
             {
-
-                return RegresarRespuestaExcepcionComun("ValidarToken", e);
+                return RegresarRespuestaIncorrecta("ValidarToken", e);
             }
 
         }
