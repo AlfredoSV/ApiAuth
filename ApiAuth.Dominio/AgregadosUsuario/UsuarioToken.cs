@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApiAuth.Dominio
 {
-    public class AgregadoToken
+    public class UsuarioToken
     {
         public Guid IdToken { get; private set; }
         public string Token { get; private set; }
@@ -14,7 +14,7 @@ namespace ApiAuth.Dominio
         public DateTime FechaVencimientoToken { get; private set; }
         public Guid IdUsuario { get; private set; }
 
-        public AgregadoToken(Guid idToken, string token, DateTime fechaAltaToken, DateTime fechaVencimientoToken, Guid idUsuario)
+        public UsuarioToken(Guid idToken, Guid idUsuario, string token, DateTime fechaAltaToken, DateTime fechaVencimientoToken)
         {
             IdToken = idToken;
             Token = token;
@@ -24,9 +24,9 @@ namespace ApiAuth.Dominio
         }
 
 
-        public static AgregadoToken Create(Guid idToken, string token, DateTime fechaAltaToken, DateTime fechaVencimientoToken, Guid idUsuario)
+        public static UsuarioToken Create(Guid idToken, Guid idUsuario, string token, DateTime fechaAltaToken, DateTime fechaVencimientoToken)
         {
-            return new AgregadoToken(idToken, token, fechaAltaToken, fechaVencimientoToken, idUsuario);
+            return new UsuarioToken(idToken, idUsuario, token, fechaAltaToken, fechaVencimientoToken);
         }
 
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IX+yoPYU9vVQoLvNxO08i5MMyRKJ2VHDVD4xTjjXPYqv9UsflvwQq/jcf6kCppIiVTdauXtgZbsegHXhsY/yCw==",
+  "dgSpecHash": "+1/zAF0qZp91TGz/oFwde5ip9kKlhW+mkrXQJu46/aDAlMrqRzy6MLyVwsGUE/87e+GyBnGaeLrSfzuhfolEug==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alfredo\\Desktop\\Proyectos\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Dominio.csproj",
+  "projectFilePath": "C:\\Users\\Alfredo\\Documents\\Proyectos\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Dominio.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

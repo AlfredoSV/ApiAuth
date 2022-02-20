@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using ApiAuth.Dominio;
 using System.Threading.Tasks;
+using Dominio.ExcepcionComun;
 
 namespace ApiAuth.Aplicacion
 {
@@ -21,14 +22,14 @@ namespace ApiAuth.Aplicacion
             var usuarioRes = _usuarios.ValidarUsuarioPorUsuarioYContrasenia(usuario, contrasenia);
 
             if (usuarioRes == null)
-                throw new Exception("Credenciales no validas");
+                throw new ExcepcionComun("Usuario no valido", "Credenciales no validas");
 
 
             var fechaExpiracion = DateTime.Now.AddDays(1);
             var fechaAlta = DateTime.Now;
             var idToken = Guid.NewGuid();
 
-            var tokenUsuario = AgregadoToken.Create(idToken, _servicioToken.GenerarToken(), fechaAlta, fechaExpiracion, usuarioRes.IdUsuario);
+            var tokenUsuario = UsuarioToken.Create(idToken, usuarioRes.IdUsuario, _servicioToken.GenerarToken(), fechaAlta, fechaExpiracion);
 
 
             _servicioToken.GuardarTokenUsuario(tokenUsuario);
@@ -47,7 +48,14 @@ namespace ApiAuth.Aplicacion
         public void ValidarToken(Guid idUsuario, string correo, string token)
         {
 
-            var usuario = _usuarios.ObtenerUsuarioPorId(idUsuario);
+            var usuario = _usuarios.ObtenerTokenPorIdUsuario(idUsuario);
+            var fechaActual = DateTime.Now;
+
+            if (usuario == null)
+                throw new ExcepcionComun("Usuario no valido", "Este usuario no se encuentra registrado");
+
+            if (fechaActual > usuario.FechaVencimientoToken)
+                throw new ExcepcionComun("Token no valido", "Este token no es valido, favor de generar otro");
 
 
 

@@ -9,10 +9,10 @@ namespace ApiAuth.Controllers
     [ApiController]
     public class UsuarioAuthController : ControladorBase
     {
-        public readonly IServicioUsuarioAuth _ServicioUsuarioAuth;
+        public readonly IServicioUsuarioAuth _servicioUsuarioAuth;
         public UsuarioAuthController(IServicioUsuarioAuth servicioUsuarioAuth)
         {
-            _ServicioUsuarioAuth = servicioUsuarioAuth;
+            _servicioUsuarioAuth = servicioUsuarioAuth;
         }
 
         [HttpPost("[action]")]
@@ -21,12 +21,16 @@ namespace ApiAuth.Controllers
             try
             {
 
-                return Json(_ServicioUsuarioAuth.ValidarUsuario(dtoUsuatioLogin.CorreoUsuario, dtoUsuatioLogin.ContrasenaUsuario));
+                return Json(_servicioUsuarioAuth.ValidarUsuario(dtoUsuatioLogin.CorreoUsuario, dtoUsuatioLogin.ContrasenaUsuario));
+            }
+            catch (ExcepcionComun e)
+            {
+
+                return RegresarRespuestaIncorrecta("UsuarioAuth", e);
             }
             catch (Exception e)
             {
-
-                throw;
+                return RegresarRespuestaIncorrecta("UsuarioAuth", e);
             }
 
         }
@@ -36,7 +40,7 @@ namespace ApiAuth.Controllers
         {
             try
             {
-                throw new ExcepcionComun("Error", "DetalleError");
+                _servicioUsuarioAuth.ValidarToken(dtoUsuarioToken.IdUsuario, dtoUsuarioToken.CorreoUsuario, dtoUsuarioToken.TokenUsuario);
                 return RegresarRespuestaHttpCorrecta();
             }
             catch (ExcepcionComun e)

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3mZY3TZny+aIZwSX2dEUGo06wN0c8aapELZxx+UAQyWzbvoxQnPjYVk6hRyKC0zm6KrQ51JWLjRARbIwzDPkCA==",
+  "dgSpecHash": "1QKAhHPAOKjaA5K7DHMuS5yzXoJ8weXzQW/L7ab2ckqapvp3Z6SJTMFQF469TpRETmJzXXxxk70CcduAyIJK3w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alfredo\\Desktop\\Proyectos\\ApiAuth\\ApiAuth\\ApiAuth.csproj",
+  "projectFilePath": "C:\\Users\\Alfredo\\Documents\\Proyectos\\ApiAuth\\ApiAuth\\ApiAuth.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alfredo\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Alfredo\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

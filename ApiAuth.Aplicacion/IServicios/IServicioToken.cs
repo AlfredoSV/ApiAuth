@@ -11,6 +11,6 @@ namespace ApiAuth.Aplicacion
     {
         string GenerarToken();
 
-        void GuardarTokenUsuario(AgregadoToken token);
+        void GuardarTokenUsuario(UsuarioToken token);
     }
 }

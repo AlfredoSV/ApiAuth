@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ApiAuth.Dominio;
 using Dapper;
+using Dominio.ExcepcionComun;
 
 namespace ApiAuth.Infraestructura
 {
@@ -33,7 +34,7 @@ namespace ApiAuth.Infraestructura
             }
         }
 
-        public void GuardarTokenUsuario(AgregadoToken tokenUsuario)
+        public void GuardarTokenUsuario(UsuarioToken tokenUsuario)
         {
             var sql = @"INSERT INTO usuarioToken VALUES(@idToken,@idUsuario,@token,@fechaAltaToken,@fechaVencimientoToken);";
             try
@@ -45,13 +46,24 @@ namespace ApiAuth.Infraestructura
             }
             catch (Exception e)
             {
-                throw;
+                throw new ExcepcionComun("GuardarTokenUsuario", e.Message);
             }
         }
 
-        public Usuario ObtenerUsuarioPorId(Guid idUsuario)
+        public UsuarioToken ObtenerTokenPorIdUsuario(Guid idUsuario)
         {
-            throw new NotImplementedException();
+            var sql = @"SELECT idToken ,idUsuario ,token ,fechaAltaToken ,fechaVencimientoToken  FROM usuarioToken;";
+            try
+            {
+                using (var con = new SqlConnection(_cadConex))
+                {
+                    return con.Query<UsuarioToken>(sql, idUsuario).FirstOrDefault();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new ExcepcionComun("ObtenerTokenPorIdUsuario", e.Message);
+            }
         }
     }
 }
