@@ -6,7 +6,7 @@ namespace ApiAuth.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuarioAuthController : Controller
+    public class UsuarioAuthController : ControladorBase
     {
         public readonly IServicioUsuarioAuth _ServicioUsuarioAuth;
         public UsuarioAuthController(IServicioUsuarioAuth servicioUsuarioAuth)
@@ -35,13 +35,13 @@ namespace ApiAuth.Controllers
         {
             try
             {
-                return null;
-                //return Json(_ServicioUsuarioAuth.ValidarUsuario(dtoUsuatioLogin.CorreoUsuario, dtoUsuatioLogin.ContrasenaUsuario));
+                throw new IndexOutOfRangeException();
+                return RegresarRespuestaHttpCorrecta();
             }
             catch (Exception e)
             {
 
-                throw;
+                return RegresarRespuestaExcepcionComun("ValidarToken", e);
             }
 
         }
