@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CmQTI4pSj5M6HS2u+hgjw2s9Hujd1mqlOn2A4xXPGYByIUEpR4bCdztaz9e4UEFXpyZQlsyTvJB2euriF/qAeA==",
+  "dgSpecHash": "91EoEEmJhAba/40tWOVlcgdXze7L0I6HgvvM5tr+loSOeW+g9smfWi6jIFFGLmvGqpWYbnFudIQJfCX6stAeew==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alfredo\\Source\\Repos\\AlfredoSV\\ApiAuth\\ApiAuth.Infraestructura\\ApiAuth.Infraestructura.csproj",
+  "projectFilePath": "C:\\Users\\Alfredo\\Desktop\\Proyectos\\ApiAuth\\ApiAuth.Infraestructura\\ApiAuth.Infraestructura.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alfredo\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Alfredo\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

@@ -11,4 +11,12 @@ namespace ApiAuth.Aplicacion
         public string CorreoUsuario { get; set; }
         public string ContrasenaUsuario { get; set; }
     }
+
+    public class DtoUsuarioToken
+    {
+        public string CorreoUsuario { get; set; }
+        public string ContrasenaUsuario { get; set; }
+        public string TokenUsuario { get; set; }
+
+    }
 }

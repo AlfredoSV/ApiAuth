@@ -12,6 +12,8 @@ namespace ApiAuth.Dominio
 
         void GuardarTokenUsuario(AgregadoToken tokenUsuario);
 
+        Usuario ObtenerUsuarioPorId(Guid idUsuario);
+
 
     }
 }
