@@ -40,7 +40,7 @@ namespace ApiAuth.Controllers
         {
             try
             {
-                _servicioUsuarioAuth.ValidarToken(dtoUsuarioToken.IdUsuario, dtoUsuarioToken.CorreoUsuario, dtoUsuarioToken.TokenUsuario);
+                _servicioUsuarioAuth.ValidarToken(dtoUsuarioToken.IdUsuario, dtoUsuarioToken.TokenUsuario);
                 return RegresarRespuestaHttpCorrecta();
             }
             catch (ExcepcionComun e)

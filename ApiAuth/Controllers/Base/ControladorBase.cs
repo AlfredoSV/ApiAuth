@@ -16,8 +16,8 @@ namespace ApiAuth.Controllers
 
         protected ActionResult RegresarRespuestaIncorrecta(string controlador, ExcepcionComun e)
         {
-            var result = StatusCode(StatusCodes.Status500InternalServerError, new { Detalle = e.Detalle });
-            return result;
+
+            return BadRequest(new { Detalle = e.Detalle });
         }
 
 

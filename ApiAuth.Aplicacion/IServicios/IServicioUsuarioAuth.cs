@@ -10,6 +10,6 @@ namespace ApiAuth.Aplicacion
     {
         DtoUsuarioLoginRespuesta ValidarUsuario(string usuario, string contrasena);
 
-        void ValidarToken(Guid idUsuario, string correo, string token);
+        void ValidarToken(Guid idUsuario, string token);
     }
 }

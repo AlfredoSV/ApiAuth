@@ -15,7 +15,6 @@ namespace ApiAuth.Aplicacion
     public class DtoUsuarioToken
     {
         public Guid IdUsuario { get; set; }
-        public string CorreoUsuario { get; set; }
         public string TokenUsuario { get; set; }
 
     }

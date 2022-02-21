@@ -45,14 +45,18 @@ namespace ApiAuth.Aplicacion
 
         }
 
-        public void ValidarToken(Guid idUsuario, string correo, string token)
+        public void ValidarToken(Guid idUsuario, string token)
         {
 
             var usuario = _usuarios.ObtenerTokenPorIdUsuario(idUsuario);
             var fechaActual = DateTime.Now;
 
+
             if (usuario == null)
                 throw new ExcepcionComun("Usuario no valido", "Este usuario no se encuentra registrado");
+
+            if (token != usuario.Token)
+                throw new ExcepcionComun("Token no valido", "Este usuario no se encuentra asociado a este token");
 
             if (fechaActual > usuario.FechaVencimientoToken)
                 throw new ExcepcionComun("Token no valido", "Este token no es valido, favor de generar otro");
