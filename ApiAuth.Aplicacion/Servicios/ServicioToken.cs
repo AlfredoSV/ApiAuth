@@ -9,9 +9,9 @@ namespace ApiAuth.Aplicacion
 {
     public class ServicioToken : IServicioToken
     {
-        private IUsuarios _usuarios { get; set; }
+        private IRepositorioUsuarios _usuarios { get; set; }
 
-        public ServicioToken(IUsuarios consultarUsuarios)
+        public ServicioToken(IRepositorioUsuarios consultarUsuarios)
         {
             _usuarios = consultarUsuarios;
 

@@ -10,10 +10,10 @@ using Dominio.ExcepcionComun;
 
 namespace ApiAuth.Infraestructura
 {
-    public class Usuarios : IUsuarios
+    public class RepositorioUsuarios : IRepositorioUsuarios
     {
         private string _cadConex { get; set; }
-        public Usuarios(string cadConex)
+        public RepositorioUsuarios(string cadConex)
         {
             _cadConex = cadConex;
         }
@@ -65,5 +65,21 @@ namespace ApiAuth.Infraestructura
                 throw new ExcepcionComun("ObtenerTokenPorIdUsuario", e.Message);
             }
         }
+        public void EliminarTokenPorIdUsuario(Guid idUsuario)
+        {
+            var sql = @"delete from usuarioToken where idUsuario = @idUsuario;";
+            try
+            {
+                using (var con = new SqlConnection(_cadConex))
+                {
+                    con.Query(sql, idUsuario);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new ExcepcionComun("EliminarTokenPorIdUsuario", e.Message);
+            }
+        }
+
     }
 }

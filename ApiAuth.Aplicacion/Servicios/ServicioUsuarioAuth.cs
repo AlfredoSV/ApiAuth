@@ -10,9 +10,9 @@ namespace ApiAuth.Aplicacion
 {
     public class ServicioUsuarioAuth : IServicioUsuarioAuth
     {
-        private IUsuarios _usuarios { get; set; }
+        private IRepositorioUsuarios _usuarios { get; set; }
         private IServicioToken _servicioToken { get; set; }
-        public ServicioUsuarioAuth(IUsuarios consultarUsuarios, IServicioToken servicioToken)
+        public ServicioUsuarioAuth(IRepositorioUsuarios consultarUsuarios, IServicioToken servicioToken)
         {
             _usuarios = consultarUsuarios;
             _servicioToken = servicioToken;
@@ -33,6 +33,7 @@ namespace ApiAuth.Aplicacion
 
 
             _servicioToken.GuardarTokenUsuario(tokenUsuario);
+            _usuarios.EliminarTokenPorIdUsuario(usuarioRes.IdUsuario);
 
             var dtoUsuarioRes = new DtoUsuarioLoginRespuesta()
             {

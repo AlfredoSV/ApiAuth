@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApiAuth.Dominio
 {
-    public interface IUsuarios
+    public interface IRepositorioUsuarios
     {
         Usuario ValidarUsuarioPorUsuarioYContrasenia(string correo, string contrasenia);
 
@@ -14,6 +14,6 @@ namespace ApiAuth.Dominio
 
         UsuarioToken ObtenerTokenPorIdUsuario(Guid idUsuario);
 
-
+        void EliminarTokenPorIdUsuario(Guid idUsuario);
     }
 }
