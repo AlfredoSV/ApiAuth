@@ -20,7 +20,6 @@ namespace ApiAuth.Controllers
         {
             try
             {
-
                 return Json(_servicioUsuarioAuth.ValidarUsuario(dtoUsuatioLogin.CorreoUsuario, dtoUsuatioLogin.ContrasenaUsuario));
             }
             catch (ExcepcionComun e)

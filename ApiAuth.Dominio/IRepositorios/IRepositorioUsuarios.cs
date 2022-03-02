@@ -10,10 +10,10 @@ namespace ApiAuth.Dominio
     {
         Usuario ValidarUsuarioPorUsuarioYContrasenia(string correo, string contrasenia);
 
-        void GuardarTokenUsuario(UsuarioToken tokenUsuario);
+        void GuardarNuevoTokenUsuario(UsuarioToken tokenUsuario);
 
         UsuarioToken ObtenerTokenPorIdUsuario(Guid idUsuario);
 
-        void EliminarTokenPorIdUsuario(Guid idUsuario);
+        void EliminarTokensAnterioresPorIdUsuario(Guid idUsuario);
     }
 }

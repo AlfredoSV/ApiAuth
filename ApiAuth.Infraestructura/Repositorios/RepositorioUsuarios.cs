@@ -34,7 +34,7 @@ namespace ApiAuth.Infraestructura
             }
         }
 
-        public void GuardarTokenUsuario(UsuarioToken tokenUsuario)
+        public void GuardarNuevoTokenUsuario(UsuarioToken tokenUsuario)
         {
             var sql = @"INSERT INTO usuarioToken VALUES(@idToken,@idUsuario,@token,@fechaAltaToken,@fechaVencimientoToken);";
             try
@@ -65,7 +65,7 @@ namespace ApiAuth.Infraestructura
                 throw new ExcepcionComun("ObtenerTokenPorIdUsuario", e.Message);
             }
         }
-        public void EliminarTokenPorIdUsuario(Guid idUsuario)
+        public void EliminarTokensAnterioresPorIdUsuario(Guid idUsuario)
         {
             var sql = @"delete from usuarioToken where idUsuario = @idUsuario;";
             try

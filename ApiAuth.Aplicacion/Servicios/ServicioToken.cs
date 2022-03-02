@@ -28,9 +28,19 @@ namespace ApiAuth.Aplicacion
             return token;
         }
 
-        public void GuardarTokenUsuario(UsuarioToken token)
+        public void GuardarNuevoTokenUsuario(UsuarioToken token)
         {
-            _usuarios.GuardarTokenUsuario(token);
+            _usuarios.GuardarNuevoTokenUsuario(token);
+        }
+
+        public void EliminarTokensAnterioresPorIdUsuario(Guid idUsuario)
+        {
+            _usuarios.EliminarTokensAnterioresPorIdUsuario(idUsuario);
+        }
+
+        public UsuarioToken ObtenerTokenPorIdUsuario(Guid idUsuario)
+        {
+            return _usuarios.ObtenerTokenPorIdUsuario(idUsuario);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio.ExcepcionComun;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,12 +15,22 @@ namespace ApiAuth.Dominio
         public DateTime FechaVencimientoToken { get; private set; }
         public Guid IdUsuario { get; private set; }
 
-        public UsuarioToken(Guid idToken, Guid idUsuario, string token, DateTime fechaAltaToken, DateTime fechaVencimientoToken)
+        private UsuarioToken(Guid idToken, Guid idUsuario, string token, DateTime fechaAltaToken, DateTime fechaVencimientoToken)
         {
+            if (idToken == Guid.Empty)
+                throw new ExcepcionComun("Valor requerido", "El IdToken es requerido");
             IdToken = idToken;
+            if (token.Equals("") || token == null)
+                throw new ExcepcionComun("Valor requerido", "El Token es requerido");
             Token = token;
+            if (fechaAltaToken == DateTime.MinValue || fechaAltaToken == DateTime.MaxValue)
+                throw new ExcepcionComun("Valor invalido", "La FechaAltaToken no es valida");
             FechaAltaToken = fechaAltaToken;
+            if (FechaVencimientoToken == DateTime.MinValue || FechaVencimientoToken == DateTime.MaxValue)
+                throw new ExcepcionComun("Valor invalido", "La FechaVencimientoToken no es valida");
             FechaVencimientoToken = fechaVencimientoToken;
+            if (IdUsuario == Guid.Empty)
+                throw new ExcepcionComun("Valor requerido", "El IdUsuario es requerido");
             IdUsuario = idUsuario;
         }
 

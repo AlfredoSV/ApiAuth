@@ -19,21 +19,20 @@ namespace ApiAuth.Aplicacion
         }
         public DtoUsuarioLoginRespuesta ValidarUsuario(string usuario, string contrasenia)
         {
-            var usuarioRes = _usuarios.ValidarUsuarioPorUsuarioYContrasenia(usuario, contrasenia);
-
-            if (usuarioRes == null)
-                throw new ExcepcionComun("Usuario no valido", "Credenciales no validas");
-
-
-            var fechaExpiracion = DateTime.Now.AddDays(1);
             var fechaAlta = DateTime.Now;
             var idToken = Guid.NewGuid();
+            var usuarioRes = _usuarios.ValidarUsuarioPorUsuarioYContrasenia(usuario, contrasenia);
+            var fechaExpiracion = DateTime.Now.AddDays(1);
+            var token = _servicioToken.GenerarToken();
 
-            var tokenUsuario = UsuarioToken.Create(idToken, usuarioRes.IdUsuario, _servicioToken.GenerarToken(), fechaAlta, fechaExpiracion);
 
+            if (usuarioRes == null)
+                throw new ExcepcionComun("Usuario no valido", "Credenciales no validas.");
 
-            _servicioToken.GuardarTokenUsuario(tokenUsuario);
-            _usuarios.EliminarTokenPorIdUsuario(usuarioRes.IdUsuario);
+            var tokenUsuario = UsuarioToken.Create(idToken, usuarioRes.IdUsuario, token, fechaAlta, fechaExpiracion);
+
+            _servicioToken.EliminarTokensAnterioresPorIdUsuario(usuarioRes.IdUsuario);
+            _servicioToken.GuardarNuevoTokenUsuario(tokenUsuario);
 
             var dtoUsuarioRes = new DtoUsuarioLoginRespuesta()
             {
@@ -49,7 +48,7 @@ namespace ApiAuth.Aplicacion
         public void ValidarToken(Guid idUsuario, string token)
         {
 
-            var usuario = _usuarios.ObtenerTokenPorIdUsuario(idUsuario);
+            var usuario = _servicioToken.ObtenerTokenPorIdUsuario(idUsuario);
             var fechaActual = DateTime.Now;
 
 
@@ -61,7 +60,6 @@ namespace ApiAuth.Aplicacion
 
             if (fechaActual > usuario.FechaVencimientoToken)
                 throw new ExcepcionComun("Token no valido", "Este token no es valido, favor de generar otro");
-
 
 
         }
