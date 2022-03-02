@@ -10,7 +10,6 @@ namespace Dominio.ExcepcionComun
     {
         public string Titulo { get; set; }
         public string Detalle { get; set; }
-
         public string StackTracer { get; set; }
         public string Fuente { get; set; }
         public string Mensaje { get; set; }

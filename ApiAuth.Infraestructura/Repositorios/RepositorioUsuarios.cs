@@ -30,7 +30,7 @@ namespace ApiAuth.Infraestructura
             }
             catch (Exception e)
             {
-                throw;
+                throw new ExcepcionComun("ValidarUsuarioPorUsuarioYContrasenia", e.Message);
             }
         }
 
