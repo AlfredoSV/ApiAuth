@@ -20,16 +20,17 @@ namespace ApiAuth.Controllers
         {
             try
             {
+                
                 return Json(_servicioUsuarioAuth.ValidarUsuario(dtoUsuatioLogin.CorreoUsuario, dtoUsuatioLogin.ContrasenaUsuario));
             }
             catch (ExcepcionComun e)
             {
 
-                return RegresarRespuestaIncorrecta("UsuarioAuth", e);
+                return RegresarRespuestaIncorrectaComun("UsuarioAuth", e);
             }
             catch (Exception e)
             {
-                return RegresarRespuestaIncorrecta("UsuarioAuth", e);
+                return RegresarRespuestaIncorrectaNoControlada("UsuarioAuth", e);
             }
 
         }
@@ -45,11 +46,11 @@ namespace ApiAuth.Controllers
             catch (ExcepcionComun e)
             {
 
-                return RegresarRespuestaIncorrecta("ValidarToken", e);
+                return RegresarRespuestaIncorrectaComun("ValidarToken", e);
             }
             catch (Exception e)
             {
-                return RegresarRespuestaIncorrecta("ValidarToken", e);
+                return RegresarRespuestaIncorrectaNoControlada("ValidarToken", e);
             }
 
         }

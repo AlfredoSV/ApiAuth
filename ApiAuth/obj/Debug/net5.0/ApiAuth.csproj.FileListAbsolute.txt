@@ -146,5 +146,4 @@ C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\ApiAuth.dl
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\ref\ApiAuth.dll
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\ApiAuth.pdb
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\ApiAuth.genruntimeconfig.cache
-C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\bin\Debug\net5.0\ApiAuth.StaticWebAssets.xml
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\refint\ApiAuth.dll

@@ -11,20 +11,20 @@ namespace ApiAuth.Controllers
 
         protected ActionResult RegresarRespuestaHttpCorrecta()
         {
-            return Ok(new { detalle = "Todo correcta" });
+            return Ok();
         }
 
-        protected ActionResult RegresarRespuestaIncorrecta(string controlador, ExcepcionComun e)
+        protected ActionResult RegresarRespuestaIncorrectaComun(string controlador, ExcepcionComun e)
         {
 
-            return BadRequest(new { Detalle = e.Detalle });
+            return BadRequest(new { Detalle = e.Detalle, Controlador = controlador });
         }
 
 
-        protected ActionResult RegresarRespuestaIncorrecta(string controlador, Exception e)
+        protected ActionResult RegresarRespuestaIncorrectaNoControlada(string controlador, Exception e)
         {
-            var result = StatusCode(StatusCodes.Status500InternalServerError, new { Detalle = e.Message });
-            return result;
+            return StatusCode(StatusCodes.Status500InternalServerError, new { Detalle = e.Message, Controlador = controlador});
+            
         }
 
     }
