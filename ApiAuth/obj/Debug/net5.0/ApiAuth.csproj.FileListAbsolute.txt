@@ -115,7 +115,6 @@ C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\bin\Debug\net5.0\ApiAuth.de
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\bin\Debug\net5.0\ApiAuth.runtimeconfig.json
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\bin\Debug\net5.0\ApiAuth.runtimeconfig.dev.json
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\bin\Debug\net5.0\ApiAuth.dll
-C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\bin\Debug\net5.0\ref\ApiAuth.dll
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\bin\Debug\net5.0\ApiAuth.pdb
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\bin\Debug\net5.0\Dapper.dll
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\bin\Debug\net5.0\Microsoft.OpenApi.dll
@@ -140,7 +139,6 @@ C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\ApiAuth.As
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\ApiAuth.AssemblyInfo.cs
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\ApiAuth.csproj.CoreCompileInputs.cache
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\staticwebassets\ApiAuth.StaticWebAssets.Manifest.cache
-C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\staticwebassets\ApiAuth.StaticWebAssets.xml
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\scopedcss\bundle\ApiAuth.styles.css
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\ApiAuth.RazorTargetAssemblyInfo.cache
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\ApiAuth.csproj.CopyComplete
@@ -148,3 +146,5 @@ C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\ApiAuth.dl
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\ref\ApiAuth.dll
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\ApiAuth.pdb
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\ApiAuth.genruntimeconfig.cache
+C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\bin\Debug\net5.0\ApiAuth.StaticWebAssets.xml
+C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth\obj\Debug\net5.0\refint\ApiAuth.dll
