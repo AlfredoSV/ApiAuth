@@ -72,7 +72,7 @@ namespace ApiAuth.Infraestructura
             {
                 using (var con = new SqlConnection(_cadConex))
                 {
-                    con.Query(sql, idUsuario);
+                    con.Query(sql, new { idUsuario });
                 }
             }
             catch (Exception e)

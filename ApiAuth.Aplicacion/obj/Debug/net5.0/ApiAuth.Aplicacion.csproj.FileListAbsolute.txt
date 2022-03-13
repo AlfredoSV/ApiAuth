@@ -54,4 +54,4 @@ C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth.Aplicacion\obj\Debug\net5.0
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth.Aplicacion\obj\Debug\net5.0\ApiAuth.Aplicacion.dll
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth.Aplicacion\obj\Debug\net5.0\ref\ApiAuth.Aplicacion.dll
 C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth.Aplicacion\obj\Debug\net5.0\ApiAuth.Aplicacion.pdb
-C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth.Aplicacion\obj\Debug\net5.0\refint\ApiAuth.Aplicacion.dll
+C:\Users\Alfredo\Documents\Proyectos\ApiAuth\ApiAuth.Aplicacion\bin\Debug\net5.0\ref\ApiAuth.Aplicacion.dll

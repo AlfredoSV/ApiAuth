@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 using ApiAuth.Aplicacion;
 using ApiAuth.Dominio;
 using ApiAuth.Infraestructura;
+using ApiAuth.Aplicacion.IServicios;
+using ApiAuth.Aplicacion.Servicios;
 
 namespace ApiAuth
 {
@@ -34,6 +36,8 @@ namespace ApiAuth
             services.AddTransient<IRepositorioUsuarios, RepositorioUsuarios>();
 
             services.AddTransient<IServicioToken, ServicioToken>();
+
+            services.AddTransient<IServicioCifrado, ServicioCifrado>();
 
             services.AddScoped(cadConex => new string(Configuration.GetConnectionString("bd")));
 

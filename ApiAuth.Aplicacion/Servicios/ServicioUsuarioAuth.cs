@@ -5,17 +5,20 @@ using System.Text;
 using ApiAuth.Dominio;
 using System.Threading.Tasks;
 using Dominio.ExcepcionComun;
+using ApiAuth.Aplicacion.IServicios;
 
 namespace ApiAuth.Aplicacion
 {
     public class ServicioUsuarioAuth : IServicioUsuarioAuth
     {
-        private IRepositorioUsuarios _usuarios { get; set; }
-        private IServicioToken _servicioToken { get; set; }
-        public ServicioUsuarioAuth(IRepositorioUsuarios consultarUsuarios, IServicioToken servicioToken)
+        private readonly IRepositorioUsuarios _usuarios;
+        private readonly IServicioToken _servicioToken;
+        private readonly IServicioCifrado _servicioCifrado;
+        public ServicioUsuarioAuth(IRepositorioUsuarios consultarUsuarios, IServicioToken servicioToken,IServicioCifrado servicioCifrado)
         {
             _usuarios = consultarUsuarios;
             _servicioToken = servicioToken;
+            _servicioCifrado = servicioCifrado;
         }
         public DtoUsuarioLoginRespuesta ValidarUsuario(string usuario, string contrasenia)
         {
@@ -23,7 +26,7 @@ namespace ApiAuth.Aplicacion
             var idToken = Guid.NewGuid();
             var usuarioRes = _usuarios.ValidarUsuarioPorUsuarioYContrasenia(usuario, contrasenia);
             var fechaExpiracion = DateTime.Now.AddDays(1);
-            var token = _servicioToken.GenerarToken();
+            var token = _servicioCifrado.Cifrar(_servicioToken.GenerarToken());
 
 
             if (usuarioRes == null)
@@ -51,11 +54,16 @@ namespace ApiAuth.Aplicacion
             var usuario = _servicioToken.ObtenerTokenPorIdUsuario(idUsuario);
             var fechaActual = DateTime.Now;
 
+            if (!_servicioCifrado.CadenaEsBase64(token))
+                throw new ExcepcionComun("Token no valido", "Este token no es valido, favor de generar otro");
+
+            var tokenEnviado = _servicioCifrado.Descifrar(token);
+            var tokenUsuario = _servicioCifrado.Descifrar(usuario.Token);
 
             if (usuario == null)
                 throw new ExcepcionComun("Usuario no valido", "Este usuario no se encuentra registrado");
 
-            if (token != usuario.Token)
+            if (tokenEnviado != tokenUsuario )
                 throw new ExcepcionComun("Token no valido", "Este usuario no se encuentra asociado a este token");
 
             if (fechaActual > usuario.FechaVencimientoToken)

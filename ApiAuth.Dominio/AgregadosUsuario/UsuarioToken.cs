@@ -26,10 +26,10 @@ namespace ApiAuth.Dominio
             if (fechaAltaToken == DateTime.MinValue || fechaAltaToken == DateTime.MaxValue)
                 throw new ExcepcionComun("Valor invalido", "La FechaAltaToken no es valida");
             FechaAltaToken = fechaAltaToken;
-            if (FechaVencimientoToken == DateTime.MinValue || FechaVencimientoToken == DateTime.MaxValue)
+            if (fechaVencimientoToken == DateTime.MinValue || fechaVencimientoToken == DateTime.MaxValue)
                 throw new ExcepcionComun("Valor invalido", "La FechaVencimientoToken no es valida");
             FechaVencimientoToken = fechaVencimientoToken;
-            if (IdUsuario == Guid.Empty)
+            if (idUsuario == Guid.Empty)
                 throw new ExcepcionComun("Valor requerido", "El IdUsuario es requerido");
             IdUsuario = idUsuario;
         }
