@@ -19,7 +19,6 @@ namespace ApiAuth.Aplicacion.Servicios
             cadena = cadena.Trim();
             return (cadena.Length % 4 == 0) && Regex.IsMatch(cadena, @"^[a-zA-Z0-9\+/]*={0,3}$", RegexOptions.None);
 
-
         }
 
         public string Cifrar(string cadena)
