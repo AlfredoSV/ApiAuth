@@ -15,5 +15,7 @@ namespace ApiAuth.Dominio
         UsuarioToken ObtenerTokenPorIdUsuario(Guid idUsuario);
 
         void EliminarTokensAnterioresPorIdUsuario(Guid idUsuario);
+
+        void GuardarNuevoUsuario(Usuario usuario);
     }
 }

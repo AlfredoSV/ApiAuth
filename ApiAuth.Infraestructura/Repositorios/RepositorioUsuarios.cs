@@ -81,5 +81,20 @@ namespace ApiAuth.Infraestructura
             }
         }
 
+        public void GuardarNuevoUsuario(Usuario usuario)
+        {
+            var sql = @"INSERT INTO usuario VALUES(@idUsuario, @correoUsuario, @contraseniaUsuario);";
+            try
+            {
+                using (var con = new SqlConnection(_cadConex))
+                {
+                    con.Query(sql, usuario );
+                }
+            }
+            catch (Exception e)
+            {
+                throw new ExcepcionComun("GuardarNuevoUsuario", e.Message);
+            }
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace ApiAuth.Dominio
 
         public string CorreoUsuario { get; set; }
 
+        public string ContraseniaUsuario { get; set; }
 
         public Usuario(Guid idUsuario, string correoUsuario)
         {
@@ -20,6 +21,17 @@ namespace ApiAuth.Dominio
 
         }
 
+        public Usuario( string correoUsuario, string contraseniaUsuario)
+        {
+            IdUsuario = Guid.NewGuid();
+            CorreoUsuario = correoUsuario;
+            ContraseniaUsuario = contraseniaUsuario;
 
+        }
+
+        public static Usuario Crear(string correoUsuario, string contraseniaUsuario)
+        {
+            return new Usuario( correoUsuario,  contraseniaUsuario);
+        }
     }
 }
