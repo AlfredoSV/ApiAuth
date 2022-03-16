@@ -17,7 +17,7 @@ namespace ApiAuth.Infraestructura
         {
             _cadConex = cadConex;
         }
-        public Usuario ValidarUsuarioPorUsuarioYContrasenia(string correo, string contrasenia)
+        public Usuario ObtenerUsuarioPorUsuarioYContrasenia(string correo, string contrasenia)
         {
             var sql = @"SELECT idUsuario, correoUsuario from usuario where correoUsuario = @correoUsuario and contraseniaUsuario = @contraseniaUsuario";
             try

@@ -24,7 +24,7 @@ namespace ApiAuth.Aplicacion
         {
             var fechaAlta = DateTime.Now;
             var idToken = Guid.NewGuid();
-            var usuarioRes = _usuarios.ValidarUsuarioPorUsuarioYContrasenia(usuario, contrasenia);
+            var usuarioRes = _usuarios.ObtenerUsuarioPorUsuarioYContrasenia(usuario, contrasenia);
             var fechaExpiracion = DateTime.Now.AddDays(1);
             var token = _servicioCifrado.Cifrar(_servicioToken.GenerarToken());
 

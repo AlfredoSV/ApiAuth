@@ -8,7 +8,7 @@ namespace ApiAuth.Dominio
 {
     public interface IRepositorioUsuarios
     {
-        Usuario ValidarUsuarioPorUsuarioYContrasenia(string correo, string contrasenia);
+        Usuario ObtenerUsuarioPorUsuarioYContrasenia(string correo, string contrasenia);
 
         void GuardarNuevoTokenUsuario(UsuarioToken tokenUsuario);
 
