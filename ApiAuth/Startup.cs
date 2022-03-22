@@ -28,9 +28,12 @@ namespace ApiAuth
 
         public IConfiguration Configuration { get; }
 
+        string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+       
             services.AddTransient<IServicioUsuarioAuth, ServicioUsuarioAuth>();
 
             services.AddTransient<IRepositorioUsuarios, RepositorioUsuarios>();
@@ -42,6 +45,19 @@ namespace ApiAuth
             services.AddTransient<IServicioUsuario, ServicioUsuario>();
 
             services.AddScoped(cadConex => new string(Configuration.GetConnectionString("bd")));
+
+
+
+            services.AddCors(options =>
+            {
+
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                    builder =>
+                    {
+                        builder.WithOrigins("");
+                    });
+
+            });
 
             services.AddControllers();
 
@@ -66,6 +82,8 @@ namespace ApiAuth
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseEndpoints(endpoints =>
             {
