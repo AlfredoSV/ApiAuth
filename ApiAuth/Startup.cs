@@ -76,6 +76,11 @@ namespace ApiAuth
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiAuth v1"));
             }
+            else if(env.IsProduction())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiAuth v1"));
+            }
 
             app.UseHttpsRedirection();
 
