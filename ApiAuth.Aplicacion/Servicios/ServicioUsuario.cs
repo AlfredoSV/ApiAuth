@@ -12,15 +12,19 @@ namespace ApiAuth.Aplicacion.Servicios
     public class ServicioUsuario : IServicioUsuario
     {
         private readonly IRepositorioUsuarios _usuarios;
+        private readonly IServicioCifrado _servicioCifrado;
 
-        public ServicioUsuario(IRepositorioUsuarios consultarUsuarios)
+        public ServicioUsuario(IRepositorioUsuarios consultarUsuarios, IServicioCifrado servicioCifrado)
         {
             _usuarios = consultarUsuarios;
+            _servicioCifrado = servicioCifrado;
             
         }
         public void CrearUsuario(DtoUsuario dtoUsuario)
         {
-            _usuarios.GuardarNuevoUsuario(Usuario.Crear(dtoUsuario.CorreoUsuario, dtoUsuario.ContraseniaUsuario));
+            var contraseniaCifrada = _servicioCifrado.Cifrar(dtoUsuario.ContraseniaUsuario);
+
+            _usuarios.GuardarNuevoUsuario(Usuario.Crear(dtoUsuario.CorreoUsuario, contraseniaCifrada));
             
         }
     }

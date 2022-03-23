@@ -18,7 +18,8 @@ namespace ApiAuth.Controllers
         {
             _servicioUsuario = servicioUsuario;
         }
-        [HttpPost]
+
+        [HttpPost("[action]")]
         public IActionResult CrearUsuario(DtoUsuario dtoUsuario)
         {
             try
