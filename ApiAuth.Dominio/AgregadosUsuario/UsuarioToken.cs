@@ -17,6 +17,7 @@ namespace ApiAuth.Dominio
 
         private UsuarioToken(Guid idToken, Guid idUsuario, string token, DateTime fechaAltaToken, DateTime fechaVencimientoToken)
         {
+            //idToken.CampoRequerido()
             if (idToken == Guid.Empty)
                 throw new ExcepcionComun("Valor requerido", "El IdToken es requerido");
             IdToken = idToken;
