@@ -17,14 +17,14 @@ namespace ApiAuth.Infraestructura
         {
             _cadConex = cadConex;
         }
-        public Usuario ObtenerUsuarioPorUsuarioYContrasenia(string correo, string contrasenia)
+        public Usuario ObtenerUsuarioPorUsuarioYContrasenia(string correo)
         {
-            var sql = @"SELECT idUsuario, correoUsuario from usuario where correoUsuario = @correoUsuario and contraseniaUsuario = @contraseniaUsuario";
+            var sql = @"SELECT idUsuario, correoUsuario,contraseniausuario from usuario where correoUsuario = @correoUsuario";
             try
             {
                 using (var con = new SqlConnection(_cadConex))
                 {
-                    return con.Query<Usuario>(sql, new { correoUsuario = correo, contraseniaUsuario = contrasenia }).FirstOrDefault();
+                    return con.Query<Usuario>(sql, new { correoUsuario = correo }).FirstOrDefault();
 
                 }
             }

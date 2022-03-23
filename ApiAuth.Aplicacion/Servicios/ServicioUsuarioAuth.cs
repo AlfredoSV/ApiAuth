@@ -24,12 +24,14 @@ namespace ApiAuth.Aplicacion
         {
             var fechaAlta = DateTime.Now;
             var idToken = Guid.NewGuid();
-            var usuarioRes = _usuarios.ObtenerUsuarioPorUsuarioYContrasenia(usuario, contrasenia);
+            var usuarioRes = _usuarios.ObtenerUsuarioPorUsuarioYContrasenia(usuario);
             var fechaExpiracion = DateTime.Now.AddDays(1);
             var token = _servicioCifrado.Cifrar(_servicioToken.GenerarToken());
 
-
             if (usuarioRes == null)
+                throw new ExcepcionComun("Usuario no valido", "Credenciales no validas.");
+
+            if(!contrasenia.Equals(_servicioCifrado.Descifrar(usuarioRes.ContraseniaUsuario)))
                 throw new ExcepcionComun("Usuario no valido", "Credenciales no validas.");
 
             var tokenUsuario = UsuarioToken.Create(idToken, usuarioRes.IdUsuario, token, fechaAlta, fechaExpiracion);

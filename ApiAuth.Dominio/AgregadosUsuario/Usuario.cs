@@ -14,10 +14,11 @@ namespace ApiAuth.Dominio
 
         public string ContraseniaUsuario { get; set; }
 
-        public Usuario(Guid idUsuario, string correoUsuario)
+        public Usuario(Guid idUsuario, string correoUsuario, string contraseniaUsuario)
         {
             IdUsuario = idUsuario;
             CorreoUsuario = correoUsuario;
+            ContraseniaUsuario = contraseniaUsuario;
 
         }
 
