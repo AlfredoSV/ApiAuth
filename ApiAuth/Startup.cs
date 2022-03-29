@@ -54,7 +54,7 @@ namespace ApiAuth
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                     builder =>
                     {
-                        builder.WithOrigins("");
+                        builder.WithOrigins("https://localhost:44357/");
                     });
 
             });
