@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/qDY9yZr1p98a436sfE4qI6nl4mG9SE9jh5j/5/8MqfnmAvS6w378gDsN/rO6JL1a2gCLb4d599Or7dZ1CQisg==",
+  "dgSpecHash": "axElqR/bibUc91JwnBRWPA7vJz2ZaW7ct9tEoO56rHAeeJbm6IUvC++KZYEWfuEQbrz6p3jB6tktolI0rtCfXw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alfredo\\Documents\\Proyectos\\ApiAuth\\ApiAuth.Aplicacion\\ApiAuth.Aplicacion.csproj",
+  "projectFilePath": "C:\\Users\\alfre\\source\\repos\\AlfredoSV\\ApiAuth\\ApiAuth.Aplicacion\\ApiAuth.Aplicacion.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

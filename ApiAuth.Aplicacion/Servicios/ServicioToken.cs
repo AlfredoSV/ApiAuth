@@ -21,9 +21,10 @@ namespace ApiAuth.Aplicacion
             var token = string.Empty;
             var fecha = DateTime.Now;
 
-            token = Guid.NewGuid().ToString() + ".";
+            token = string.Concat(Guid.NewGuid().ToString(),".");
 
-            token += fecha.Minute.ToString() + fecha.Second + fecha.Millisecond;
+            token = fecha.Minute.ToString() + fecha.Second + fecha.Millisecond;
+            token = string.Concat(token,fecha.Minute.ToString(),fecha.Second,fecha.Millisecond);
 
             return token;
         }

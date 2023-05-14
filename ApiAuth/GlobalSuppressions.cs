@@ -5,4 +5,4 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("CodeQuality", "IDE0052:Quitar miembros privados no leídos", Justification = "<pendiente>", Scope = "member", Target = "~P:ApiAuth.Controllers.UsuarioAuthController.ServicioUsuarioAuth1")]
+[assembly: SuppressMessage("CodeQuality", "IDE0052:Quitar miembros privados no leídos", Justification = "<pendiente>", Scope = "member", Target = "~P:ApiAuth.Controllers.UserAuthController.ServicioUsuarioAuth1")]

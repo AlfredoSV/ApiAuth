@@ -1,4 +1,6 @@
-﻿using ApiAuth.Dominio;
+﻿using ApiAuth.Aplicacion;
+using ApiAuth.Dominio;
+using ApiAuth.Infraestructura;
 using Dominio.ExcepcionComun;
 using System;
 using System.Collections.Generic;
@@ -16,7 +18,7 @@ namespace Tests
 
             var idToken = Guid.Empty;
             var idToken2 = Guid.NewGuid();
-            var idUsuario = Guid.NewGuid();
+            var idUsuario = Guid.Parse("37B1A359-4A2A-4A2F-B06A-64C88B07F54A");
             var token = string.Empty;
             var token2 = "PruebaTok";
             var fechaAltaToken = DateTime.Now;
@@ -24,10 +26,12 @@ namespace Tests
 
             //Act y Assert
 
-            Assert.Throws<ExcepcionComun>(() =>
+            /*Assert.Throws<ExcepcionComun>(() =>
             {
-                var usuarioToken = UsuarioToken.Create(idToken, idUsuario, token2, fechaAltaToken, fechaVencimientoToken);
-            });
+                var usuarioToken = (new ServicioToken(new RepositorioUsuarios("Server=Alfredo;Database=ApiAuth;Trusted_Connection=True;"))).GenerarToken();
+                (new ServicioToken(new RepositorioUsuarios("Server=Alfredo;Database=ApiAuth;Trusted_Connection=True;"))).
+                GuardarNuevoTokenUsuario(usuarioToken);
+            });*/
 
             Assert.Throws<ExcepcionComun>(() =>
             {

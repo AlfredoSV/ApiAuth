@@ -11,10 +11,10 @@ namespace ApiAuth.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuarioController : ControladorBase
+    public class UserController : ControllerBase
     {
         public readonly IServicioUsuario _servicioUsuario;
-        public UsuarioController(IServicioUsuario servicioUsuario)
+        public UserController(IServicioUsuario servicioUsuario)
         {
             _servicioUsuario = servicioUsuario;
         }
@@ -26,12 +26,12 @@ namespace ApiAuth.Controllers
             {
                 _servicioUsuario.CrearUsuario(dtoUsuario);
 
-                return RegresarRespuestaHttpCorrecta();
+                return ReturnResponseHttpSuccess();
             }
             catch (ExcepcionComun e)
             {
 
-                return RegresarRespuestaIncorrectaComun("CrearUsuario", e);
+                return ReturnResponseIncorrectCommon("CrearUsuario", e);
             }
             catch (Exception e)
             {

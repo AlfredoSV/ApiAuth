@@ -7,10 +7,10 @@ namespace ApiAuth.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuarioAuthController : ControladorBase
+    public class UserAuthController : ControllerBase
     {
         public readonly IServicioUsuarioAuth _servicioUsuarioAuth;
-        public UsuarioAuthController(IServicioUsuarioAuth servicioUsuarioAuth)
+        public UserAuthController(IServicioUsuarioAuth servicioUsuarioAuth)
         {
             _servicioUsuarioAuth = servicioUsuarioAuth;
         }
@@ -26,7 +26,7 @@ namespace ApiAuth.Controllers
             catch (ExcepcionComun e)
             {
 
-                return RegresarRespuestaIncorrectaComun("UsuarioAuth", e);
+                return ReturnResponseIncorrectCommon("UsuarioAuth", e);
             }
             catch (Exception e)
             {
@@ -41,12 +41,12 @@ namespace ApiAuth.Controllers
             try
             {
                 _servicioUsuarioAuth.ValidarToken(dtoUsuarioToken.IdUsuario, dtoUsuarioToken.TokenUsuario);
-                return RegresarRespuestaHttpCorrecta();
+                return ReturnResponseHttpSuccess();
             }
             catch (ExcepcionComun e)
             {
 
-                return RegresarRespuestaIncorrectaComun("ValidarToken", e);
+                return ReturnResponseIncorrectCommon("ValidarToken", e);
             }
             catch (Exception e)
             {
