@@ -22,7 +22,7 @@ namespace ApiAuth.Aplicacion.Servicios
         }
         public void CrearUsuario(DtoUsuario dtoUsuario)
         {
-            var contraseniaCifrada = _servicioCifrado.Cifrar(dtoUsuario.ContraseniaUsuario);
+            string contraseniaCifrada = _servicioCifrado.Cifrar(dtoUsuario.ContraseniaUsuario);
 
             _usuarios.GuardarNuevoUsuario(Usuario.Crear(dtoUsuario.CorreoUsuario, contraseniaCifrada));
             

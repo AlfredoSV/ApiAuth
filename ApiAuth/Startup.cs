@@ -90,6 +90,7 @@ namespace ApiAuth
 
             app.UseCors(MyAllowSpecificOrigins);
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

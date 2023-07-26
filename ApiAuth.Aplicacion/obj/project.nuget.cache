@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "axElqR/bibUc91JwnBRWPA7vJz2ZaW7ct9tEoO56rHAeeJbm6IUvC++KZYEWfuEQbrz6p3jB6tktolI0rtCfXw==",
+  "dgSpecHash": "Kll/ZOjICFMSTgIGlGcVbq7aLOw6YJn7/PYNPkf6CKpWt9xXc65GP7EtN624W8JDWzMP+dr6jZj2P8Zt5LaI9w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alfre\\source\\repos\\AlfredoSV\\ApiAuth\\ApiAuth.Aplicacion\\ApiAuth.Aplicacion.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Aplicacion\\ApiAuth.Aplicacion.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alfre\\.nuget\\packages\\log4net\\2.0.15\\log4net.2.0.15.nupkg.sha512",
+    "C:\\Users\\alfre\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\alfre\\.nuget\\packages\\system.configuration.configurationmanager\\4.5.0\\system.configuration.configurationmanager.4.5.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
+    "C:\\Users\\alfre\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.5.0\\system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.security.permissions\\4.5.0\\system.security.permissions.4.5.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

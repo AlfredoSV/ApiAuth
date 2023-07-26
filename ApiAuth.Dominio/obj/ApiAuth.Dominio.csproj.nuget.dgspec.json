@@ -1,21 +1,22 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alfre\\source\\repos\\AlfredoSV\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Dominio.csproj": {}
+    "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Dominio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alfre\\source\\repos\\AlfredoSV\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Dominio.csproj": {
+    "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alfre\\source\\repos\\AlfredoSV\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Dominio.csproj",
         "projectName": "ApiAuth.Dominio",
-        "projectPath": "C:\\Users\\alfre\\source\\repos\\AlfredoSV\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Dominio.csproj",
+        "projectPath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Dominio.csproj",
         "packagesPath": "C:\\Users\\alfre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alfre\\source\\repos\\AlfredoSV\\ApiAuth\\ApiAuth.Dominio\\obj\\",
+        "outputPath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
           "C:\\Users\\alfre\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -24,7 +25,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -32,8 +33,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -44,8 +45,14 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.15, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -62,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }

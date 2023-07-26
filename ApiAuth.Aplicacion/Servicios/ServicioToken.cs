@@ -18,8 +18,8 @@ namespace ApiAuth.Aplicacion
         }
         public string GenerarToken()
         {
-            var token = string.Empty;
-            var fecha = DateTime.Now;
+            string token = string.Empty;
+            DateTime fecha = DateTime.Now;
 
             token = string.Concat(Guid.NewGuid().ToString(),".");
 
