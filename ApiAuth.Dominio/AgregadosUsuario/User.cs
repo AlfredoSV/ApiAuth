@@ -8,31 +8,31 @@ namespace ApiAuth.Dominio
 {
     public class User
     {
-        public Guid IdUser { get; set; }
+        public Guid Id { get; set; }
 
         public string Email { get; set; }
 
         public string Password { get; set; }
 
-        public User(Guid idUser, string email, string password)
+        public User(Guid id, string email, string password)
         {
-            IdUser = idUser;
+            Id = id;
             Email = email;
             Password = password;
 
         }
 
-        public User( string correoUsuario, string contraseniaUsuario)
+        public User( string email, string password)
         {
-            IdUser = Guid.NewGuid();
-            Email = correoUsuario;
-            Password = contraseniaUsuario;
+            Id = Guid.NewGuid();
+            Email = email;
+            Password = password;
 
         }
 
-        public static User Create(string correoUsuario, string contraseniaUsuario)
+        public static User Create(string email, string password)
         {
-            return new User( correoUsuario,  contraseniaUsuario);
+            return new User( email,  password);
         }
     }
 }

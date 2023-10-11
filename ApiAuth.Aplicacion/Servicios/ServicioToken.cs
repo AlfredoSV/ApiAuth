@@ -29,19 +29,19 @@ namespace ApiAuth.Aplicacion
             return token;
         }
 
-        public void GuardarNuevoTokenUsuario(UsuarioToken token)
+        public void GuardarNuevoTokenUsuario(UserToken token)
         {
-            _usuarios.GuardarNuevoTokenUsuario(token);
+            _usuarios.SaveToken(token);
         }
 
         public void EliminarTokensAnterioresPorIdUsuario(Guid idUsuario)
         {
-            _usuarios.EliminarTokensAnterioresPorIdUsuario(idUsuario);
+            _usuarios.DeleteTokensByUserId(idUsuario);
         }
 
-        public UsuarioToken ObtenerTokenPorIdUsuario(Guid idUsuario)
+        public UserToken ObtenerTokenPorIdUsuario(Guid idUsuario)
         {
-            return _usuarios.ObtenerTokenPorIdUsuario(idUsuario);
+            return _usuarios.GetTokenByUserId(idUsuario);
         }
     }
 }

@@ -35,16 +35,16 @@ namespace ApiAuth.Aplicacion
             if(!contrasenia.Equals(_servicioCifrado.Decrypt(usuarioRes.Password)))
                 throw new ExcepcionComun("Usuario no valido", "Credenciales no validas.");
 
-            UsuarioToken tokenUsuario = UsuarioToken.Create(idToken, usuarioRes.IdUser, token, fechaAlta, fechaExpiracion);
+            UserToken userToken = UserToken.Create(idToken, usuarioRes.Id, token, fechaAlta, fechaExpiracion);
 
-            _servicioToken.EliminarTokensAnterioresPorIdUsuario(usuarioRes.IdUser);
-            _servicioToken.GuardarNuevoTokenUsuario(tokenUsuario);
+            _servicioToken.EliminarTokensAnterioresPorIdUsuario(usuarioRes.Id);
+            _servicioToken.GuardarNuevoTokenUsuario(userToken);
 
             DtoUsuarioLoginRespuesta dtoUsuarioRes = new DtoUsuarioLoginRespuesta()
             {
-                Id = usuarioRes.IdUser,
+                Id = usuarioRes.Id,
                 Correo = usuarioRes.Email,
-                TokenSesion = tokenUsuario.Token
+                TokenSesion = userToken.Token
             };
 
             return dtoUsuarioRes;
@@ -54,7 +54,7 @@ namespace ApiAuth.Aplicacion
         public void ValidarToken(Guid idUsuario, string token)
         {
 
-            UsuarioToken usuario = _servicioToken.ObtenerTokenPorIdUsuario(idUsuario);
+            UserToken usuario = _servicioToken.ObtenerTokenPorIdUsuario(idUsuario);
             DateTime fechaActual = DateTime.Now;
 
             if (!_servicioCifrado.StrIsBase64(token))
@@ -69,7 +69,7 @@ namespace ApiAuth.Aplicacion
             if (tokenEnviado != tokenUsuario )
                 throw new ExcepcionComun("Token no valido", "Este usuario no se encuentra asociado a este token");
 
-            if (fechaActual > usuario.FechaVencimientoToken)
+            if (fechaActual > usuario.DateExpired)
                 throw new ExcepcionComun("Token no valido", "Este token no es valido, favor de generar otro");
 
 

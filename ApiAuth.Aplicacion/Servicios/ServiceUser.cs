@@ -30,7 +30,7 @@ namespace ApiAuth.Aplicacion.Services
                 throw new ExcepcionComun("User was exist", "The user already exists, please enter another one.");
             }
 
-            _users.GuardarNuevoUsuario(User.Create(dtoUser.Email, passwordEncrypted));
+            _users.SaveUser(User.Create(dtoUser.Email, passwordEncrypted));
             
         }
 

@@ -8,7 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ApiAuth.Aplicacion;
 using ApiAuth.Dominio;
-using ApiAuth.Infraestructura;
+using ApiAuth.Infrastructure;
 using ApiAuth.Aplicacion.IServicios;
 using ApiAuth.Aplicacion.Services;
 

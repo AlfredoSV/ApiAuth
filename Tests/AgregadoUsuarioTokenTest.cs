@@ -1,6 +1,6 @@
 ﻿using ApiAuth.Aplicacion;
 using ApiAuth.Dominio;
-using ApiAuth.Infraestructura;
+using ApiAuth.Infrastructure;
 using Dominio.ExcepcionComun;
 using System;
 using System.Collections.Generic;

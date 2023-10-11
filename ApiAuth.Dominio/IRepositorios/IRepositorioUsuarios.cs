@@ -8,13 +8,13 @@ namespace ApiAuth.Dominio
 {
     public interface IRepositorioUsuarios
     {
-        void GuardarNuevoTokenUsuario(UsuarioToken tokenUsuario);
+        void SaveToken(UserToken userToken);
 
-        UsuarioToken ObtenerTokenPorIdUsuario(Guid idUsuario);
+        UserToken GetTokenByUserId(Guid userId);
 
-        void EliminarTokensAnterioresPorIdUsuario(Guid idUsuario);
+        void DeleteTokensByUserId(Guid userId);
 
-        void GuardarNuevoUsuario(User usuario);
+        void SaveUser(User user);
 
         User GetUserByEmail(string email);
     }

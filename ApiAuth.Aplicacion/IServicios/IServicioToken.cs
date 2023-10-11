@@ -11,10 +11,10 @@ namespace ApiAuth.Aplicacion
     {
         string GenerarToken();
 
-        void GuardarNuevoTokenUsuario(UsuarioToken token);
+        void GuardarNuevoTokenUsuario(UserToken token);
 
         void EliminarTokensAnterioresPorIdUsuario(Guid idUsuario);
 
-        UsuarioToken ObtenerTokenPorIdUsuario(Guid idUsuario);
+        UserToken ObtenerTokenPorIdUsuario(Guid idUsuario);
     }
 }

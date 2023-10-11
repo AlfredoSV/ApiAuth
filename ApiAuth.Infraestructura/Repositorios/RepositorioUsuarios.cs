@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using ApiAuth.Dominio;
 using Dapper;
 using Dominio.ExcepcionComun;
 
-namespace ApiAuth.Infraestructura
+namespace ApiAuth.Infrastructure
 {
     public class RepositorioUsuarios : IRepositorioUsuarios
     {
@@ -17,83 +15,85 @@ namespace ApiAuth.Infraestructura
         {
             _cadConex = cadConex;
         }
-        public User GetUserByEmail(string correo)
+
+        public User GetUserByEmail(string email)
         {
-            var sql = @"SELECT idUsuario, correoUsuario,contraseniausuario from usuario where correoUsuario = @correoUsuario";
+            string  sql =
+            @"SELECT id, email,password from userApi where email = @email";
             try
             {
                 using (var con = new SqlConnection(_cadConex))
                 {
-                    return con.Query<User>(sql, new { correoUsuario = correo }).FirstOrDefault();
+                    return con.Query<User>(sql, new { email }).FirstOrDefault();
 
                 }
             }
             catch (Exception e)
             {
-                throw new ExcepcionComun("ValidarUsuarioPorUsuarioYContrasenia", e.Message);
+                throw new ExcepcionComun("GetUserByEmail", e.Message);
             }
         }
 
-        public void GuardarNuevoTokenUsuario(UsuarioToken tokenUsuario)
+        public void SaveToken(UserToken userToken)
         {
-            var sql = @"INSERT INTO usuarioToken VALUES(@idToken,@idUsuario,@token,@fechaAltaToken,@fechaVencimientoToken);";
+            string sql = @"INSERT INTO userToken VALUES(@id,@userid,@token,@dateCreated,@dateExpired);";
             try
             {
-                using (var con = new SqlConnection(_cadConex))
+                using (SqlConnection con = new SqlConnection(_cadConex))
                 {
-                    con.Query(sql, tokenUsuario);
+                    con.Query(sql, userToken);
                 }
             }
             catch (Exception e)
             {
-                throw new ExcepcionComun("GuardarTokenUsuario", e.Message);
+                throw new ExcepcionComun("SaveToken", e.Message);
             }
         }
 
-        public UsuarioToken ObtenerTokenPorIdUsuario(Guid idUsuario)
+        public UserToken GetTokenByUserId(Guid userId)
         {
-            var sql = @"SELECT idToken ,idUsuario ,token ,fechaAltaToken ,fechaVencimientoToken  FROM usuarioToken;";
+            var sql = @"SELECT id ,userId ,token ,fechaAltaToken ,dateCreated  FROM userToken where userId = @userId;";
             try
             {
                 using (var con = new SqlConnection(_cadConex))
                 {
-                    return con.Query<UsuarioToken>(sql, idUsuario).FirstOrDefault();
+                    return con.Query<UserToken>(sql, userId).FirstOrDefault();
                 }
             }
             catch (Exception e)
             {
-                throw new ExcepcionComun("ObtenerTokenPorIdUsuario", e.Message);
+                throw new ExcepcionComun("GetTokenByUserId", e.Message);
             }
         }
-        public void EliminarTokensAnterioresPorIdUsuario(Guid idUsuario)
+        public void DeleteTokensByUserId(Guid userId)
         {
-            var sql = @"delete from usuarioToken where idUsuario = @idUsuario;";
+            var sql = @"delete from userToken where userId = @userId;";
             try
             {
                 using (var con = new SqlConnection(_cadConex))
                 {
-                    con.Query(sql, new { idUsuario });
+                    con.Query(sql, new { userId });
                 }
             }
             catch (Exception e)
             {
-                throw new ExcepcionComun("EliminarTokenPorIdUsuario", e.Message);
+                throw new ExcepcionComun("DeleteTokensByUserId", e.Message);
             }
         }
 
-        public void GuardarNuevoUsuario(User usuario)
+        public void SaveUser(User user)
         {
-            var sql = @"INSERT INTO usuario VALUES(@idUsuario, @correoUsuario, @contraseniaUsuario);";
+            var sql = @"INSERT INTO userApi VALUES(@id, @email, @password);";
             try
             {
                 using (var con = new SqlConnection(_cadConex))
                 {
-                    con.Query(sql, usuario );
+                    con.Query(sql, user );
                 }
             }
             catch (Exception e)
             {
-                throw new ExcepcionComun("GuardarNuevoUsuario", e.Message);
+                throw new ExcepcionComun("SaveUser", e.Message);
             }
         }
 

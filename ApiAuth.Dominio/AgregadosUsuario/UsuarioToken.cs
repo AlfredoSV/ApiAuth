@@ -7,38 +7,38 @@ using System.Threading.Tasks;
 
 namespace ApiAuth.Dominio
 {
-    public class UsuarioToken
+    public class UserToken
     {
-        public Guid IdToken { get; private set; }
+        public Guid Id { get; private set; }
         public string Token { get; private set; }
-        public DateTime FechaAltaToken { get; private set; }
-        public DateTime FechaVencimientoToken { get; private set; }
-        public Guid IdUsuario { get; private set; }
+        public DateTime DateCreated { get; private set; }
+        public DateTime DateExpired { get; private set; }
+        public Guid UserId { get; private set; }
 
-        private UsuarioToken(Guid idToken, Guid idUsuario, string token, DateTime fechaAltaToken, DateTime fechaVencimientoToken)
+        private UserToken(Guid id, Guid userId, string token, DateTime dateCreated, DateTime dateExpired)
         {
-            //idToken.CampoRequerido()
-            if (idToken == Guid.Empty)
+            
+            if (id == Guid.Empty)
                 throw new ExcepcionComun("Valor requerido", "El IdToken es requerido");
-            IdToken = idToken;
+            Id = id;
             if (token.Equals("") || token == null)
                 throw new ExcepcionComun("Valor requerido", "El Token es requerido");
             Token = token;
-            if (fechaAltaToken == DateTime.MinValue || fechaAltaToken == DateTime.MaxValue)
+            if (dateCreated == DateTime.MinValue || dateCreated == DateTime.MaxValue)
                 throw new ExcepcionComun("Valor invalido", "La FechaAltaToken no es valida");
-            FechaAltaToken = fechaAltaToken;
-            if (fechaVencimientoToken == DateTime.MinValue || fechaVencimientoToken == DateTime.MaxValue)
+            DateCreated = dateCreated;
+            if (dateExpired == DateTime.MinValue || dateExpired == DateTime.MaxValue)
                 throw new ExcepcionComun("Valor invalido", "La FechaVencimientoToken no es valida");
-            FechaVencimientoToken = fechaVencimientoToken;
-            if (idUsuario == Guid.Empty)
+            DateExpired = dateExpired;
+            if (userId == Guid.Empty)
                 throw new ExcepcionComun("Valor requerido", "El IdUsuario es requerido");
-            IdUsuario = idUsuario;
+            UserId = userId;
         }
 
 
-        public static UsuarioToken Create(Guid idToken, Guid idUsuario, string token, DateTime fechaAltaToken, DateTime fechaVencimientoToken)
+        public static UserToken Create(Guid id, Guid userId, string token, DateTime dateCreated, DateTime dateExpired)
         {
-            return new UsuarioToken(idToken, idUsuario, token, fechaAltaToken, fechaVencimientoToken);
+            return new UserToken(id, userId, token, dateCreated, dateExpired);
         }
 
     }
