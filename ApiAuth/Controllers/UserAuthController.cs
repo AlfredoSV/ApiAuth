@@ -11,50 +11,52 @@ namespace ApiAuth.Controllers
     public class UserAuthController : ControllerBase
     {
         public readonly IServicioUsuarioAuth _servicioUsuarioAuth;
-        private readonly ILog _logger = LogManager.GetLogger(typeof(UserAuthController));
+        private readonly ILog _logger;
         public UserAuthController(IServicioUsuarioAuth servicioUsuarioAuth)
         {
+            _logger = LogManager.GetLogger(typeof(UserAuthController));
             _servicioUsuarioAuth = servicioUsuarioAuth;
             
         }
 
         [HttpPost("[action]")]
-        public IActionResult UsuarioAuth(DtoUsuarioLogin dtoUsuatioLogin)
+        public ActionResult<DtoUsuarioLoginRespuesta> UserAuth(DtoUserLogin dtoUserLogin)
         {
             try
             {
 
-                return Json(_servicioUsuarioAuth.ValidarUsuario(dtoUsuatioLogin.Email, dtoUsuatioLogin.Password));
+                return Ok(_servicioUsuarioAuth.ValidarUsuario(dtoUserLogin.Email, dtoUserLogin.Password));
             }
             catch (ExcepcionComun e)
             {
-                
+                _logger.Error(e.Message);
                 return ReturnResponseIncorrectCommon("UsuarioAuth", e);
             }
             catch (Exception e)
             {
                 _logger.Error(e.Message);
-                return RegresarRespuestaIncorrectaNoControlada("UsuarioAuth", e);
+                return ReturnIncorrectResponseNotControlled("UsuarioAuth", e);
             }
 
         }
 
         [HttpPost("[action]")]
-        public IActionResult ValidateToken(DtoUsuarioToken dtoUsuarioToken)
+        public ActionResult ValidateToken(DtoUserToken dtoUserToken)
         {
             try
             {
-                _servicioUsuarioAuth.ValidarToken(dtoUsuarioToken.Id, dtoUsuarioToken.Token);
+                _servicioUsuarioAuth.ValidarToken(dtoUserToken.Id, dtoUserToken.Token);
                 return ReturnResponseHttpSuccess();
             }
             catch (ExcepcionComun e)
             {
-
+                _logger.Error(e.Message);
                 return ReturnResponseIncorrectCommon("ValidarToken", e);
             }
             catch (Exception e)
             {
-                return RegresarRespuestaIncorrectaNoControlada("ValidarToken", e);
+                _logger.Error(e.Message);
+                return ReturnIncorrectResponseNotControlled("ValidarToken", e);
             }
 
         }

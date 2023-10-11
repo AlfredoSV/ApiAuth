@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ApiAuth.Aplicacion
 {
-    public class DtoUsuarioLogin
+    public class DtoUserLogin
     {
         public string Email { get; set; }
         public string Password { get; set; }
     }
 
-    public class DtoUsuarioToken
+    public class DtoUserToken
     {
         public Guid Id { get; set; }
         public string Token { get; set; }

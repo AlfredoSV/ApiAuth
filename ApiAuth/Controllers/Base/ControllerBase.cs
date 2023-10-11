@@ -21,7 +21,7 @@ namespace ApiAuth.Controllers
         }
 
 
-        protected ActionResult RegresarRespuestaIncorrectaNoControlada(string controller, Exception e)
+        protected ActionResult ReturnIncorrectResponseNotControlled(string controller, Exception e)
         {
             return StatusCode(StatusCodes.Status500InternalServerError, new { Detalle = e.Message, Controlador = controller });
             
