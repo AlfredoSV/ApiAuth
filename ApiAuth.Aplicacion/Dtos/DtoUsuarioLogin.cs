@@ -8,14 +8,14 @@ namespace ApiAuth.Aplicacion
 {
     public class DtoUsuarioLogin
     {
-        public string CorreoUsuario { get; set; }
-        public string ContrasenaUsuario { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 
     public class DtoUsuarioToken
     {
-        public Guid IdUsuario { get; set; }
-        public string TokenUsuario { get; set; }
+        public Guid Id { get; set; }
+        public string Token { get; set; }
 
     }
 }

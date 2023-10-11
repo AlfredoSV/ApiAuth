@@ -52,12 +52,12 @@ namespace ApiAuth.Infrastructure
 
         public UserToken GetTokenByUserId(Guid userId)
         {
-            var sql = @"SELECT id ,userId ,token ,fechaAltaToken ,dateCreated  FROM userToken where userId = @userId;";
+            var sql = @"SELECT id ,userId ,token ,dateCreated ,dateExpired  FROM userToken where userId = @userId;";
             try
             {
                 using (var con = new SqlConnection(_cadConex))
                 {
-                    return con.Query<UserToken>(sql, userId).FirstOrDefault();
+                    return con.Query<UserToken>(sql, new { userId }).FirstOrDefault();
                 }
             }
             catch (Exception e)

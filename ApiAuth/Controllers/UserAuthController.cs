@@ -24,7 +24,7 @@ namespace ApiAuth.Controllers
             try
             {
 
-                return Json(_servicioUsuarioAuth.ValidarUsuario(dtoUsuatioLogin.CorreoUsuario, dtoUsuatioLogin.ContrasenaUsuario));
+                return Json(_servicioUsuarioAuth.ValidarUsuario(dtoUsuatioLogin.Email, dtoUsuatioLogin.Password));
             }
             catch (ExcepcionComun e)
             {
@@ -40,11 +40,11 @@ namespace ApiAuth.Controllers
         }
 
         [HttpPost("[action]")]
-        public IActionResult ValidarToken(DtoUsuarioToken dtoUsuarioToken)
+        public IActionResult ValidateToken(DtoUsuarioToken dtoUsuarioToken)
         {
             try
             {
-                _servicioUsuarioAuth.ValidarToken(dtoUsuarioToken.IdUsuario, dtoUsuarioToken.TokenUsuario);
+                _servicioUsuarioAuth.ValidarToken(dtoUsuarioToken.Id, dtoUsuarioToken.Token);
                 return ReturnResponseHttpSuccess();
             }
             catch (ExcepcionComun e)
