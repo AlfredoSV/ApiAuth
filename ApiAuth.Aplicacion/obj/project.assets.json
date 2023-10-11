@@ -118,17 +118,17 @@
           }
         }
       },
-      "ApiAuth.Dominio/1.0.0": {
+      "ApiAuth.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "log4net": "2.0.15"
         },
         "compile": {
-          "bin/placeholder/ApiAuth.Dominio.dll": {}
+          "bin/placeholder/ApiAuth.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ApiAuth.Dominio.dll": {}
+          "bin/placeholder/ApiAuth.Domain.dll": {}
         }
       }
     }
@@ -345,15 +345,15 @@
         "version.txt"
       ]
     },
-    "ApiAuth.Dominio/1.0.0": {
+    "ApiAuth.Domain/1.0.0": {
       "type": "project",
-      "path": "../ApiAuth.Dominio/ApiAuth.Dominio.csproj",
-      "msbuildProject": "../ApiAuth.Dominio/ApiAuth.Dominio.csproj"
+      "path": "../ApiAuth.Dominio/ApiAuth.Domain.csproj",
+      "msbuildProject": "../ApiAuth.Dominio/ApiAuth.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "ApiAuth.Dominio >= 1.0.0",
+      "ApiAuth.Domain >= 1.0.0",
       "log4net >= 2.0.15"
     ]
   },
@@ -366,9 +366,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Aplicacion\\ApiAuth.Aplicacion.csproj",
-      "projectName": "ApiAuth.Aplicacion",
-      "projectPath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Aplicacion\\ApiAuth.Aplicacion.csproj",
+      "projectUniqueName": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Aplicacion\\ApiAuth.Application.csproj",
+      "projectName": "ApiAuth.Application",
+      "projectPath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Aplicacion\\ApiAuth.Application.csproj",
       "packagesPath": "C:\\Users\\alfre\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Aplicacion\\obj\\",
       "projectStyle": "PackageReference",
@@ -395,8 +395,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Dominio.csproj": {
-              "projectPath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Dominio.csproj"
+            "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Domain.csproj": {
+              "projectPath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Domain.csproj"
             }
           }
         }

@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32106.194
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiAuth", "ApiAuth\ApiAuth.csproj", "{0DC594EA-C163-4675-8C8B-107F3CA10779}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiAuth.Dominio", "ApiAuth.Dominio\ApiAuth.Dominio.csproj", "{4A71351D-304C-4D5B-A3CC-2C6B9B5E6220}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiAuth.Domain", "ApiAuth.Dominio\ApiAuth.Domain.csproj", "{4A71351D-304C-4D5B-A3CC-2C6B9B5E6220}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiAuth.Aplicacion", "ApiAuth.Aplicacion\ApiAuth.Aplicacion.csproj", "{0029C7F0-355B-4B00-B4CC-A6BDB4A19CC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiAuth.Application", "ApiAuth.Aplicacion\ApiAuth.Application.csproj", "{0029C7F0-355B-4B00-B4CC-A6BDB4A19CC2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiAuth.Infraestructura", "ApiAuth.Infraestructura\ApiAuth.Infraestructura.csproj", "{1E821550-2325-4058-AA42-3A81B8D027C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiAuth.Infrastructure", "ApiAuth.Infraestructura\ApiAuth.Infrastructure.csproj", "{1E821550-2325-4058-AA42-3A81B8D027C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{BC2780E7-6160-46CB-B1AE-6E93FEE50BFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{BC2780E7-6160-46CB-B1AE-6E93FEE50BFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

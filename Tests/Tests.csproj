@@ -20,9 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ApiAuth.Aplicacion\ApiAuth.Aplicacion.csproj" />
-    <ProjectReference Include="..\ApiAuth.Dominio\ApiAuth.Dominio.csproj" />
-    <ProjectReference Include="..\ApiAuth.Infraestructura\ApiAuth.Infraestructura.csproj" />
+    <ProjectReference Include="..\ApiAuth.Aplicacion\ApiAuth.Application.csproj" />
+    <ProjectReference Include="..\ApiAuth.Dominio\ApiAuth.Domain.csproj" />
+    <ProjectReference Include="..\ApiAuth.Infraestructura\ApiAuth.Infrastructure.csproj" />
     <ProjectReference Include="..\ApiAuth\ApiAuth.csproj" />
   </ItemGroup>
 

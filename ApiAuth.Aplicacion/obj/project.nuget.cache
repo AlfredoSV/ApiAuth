@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sxfTyqVmMerNQQ42BiR14wit02ZRJI6MhpPipvj+FvuJCxUIlTq76pt1jOLStDi58Xih9AwXMhHJQqbFZsGJ7w==",
+  "dgSpecHash": "yS9PbQMPrrDjnQ9GJUskjlFooHjqkhF/FJrqGoJibwOKPribWZ/0FnC1EDoS+2D8IR3mm24VKjrI66w5CfvHcA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Aplicacion\\ApiAuth.Aplicacion.csproj",
+  "projectFilePath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Aplicacion\\ApiAuth.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alfre\\.nuget\\packages\\log4net\\2.0.15\\log4net.2.0.15.nupkg.sha512",
     "C:\\Users\\alfre\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",

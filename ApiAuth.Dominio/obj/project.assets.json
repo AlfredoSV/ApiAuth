@@ -347,9 +347,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Dominio.csproj",
-      "projectName": "ApiAuth.Dominio",
-      "projectPath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Dominio.csproj",
+      "projectUniqueName": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Domain.csproj",
+      "projectName": "ApiAuth.Domain",
+      "projectPath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Domain.csproj",
       "packagesPath": "C:\\Users\\alfre\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\obj\\",
       "projectStyle": "PackageReference",

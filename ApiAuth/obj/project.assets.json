@@ -520,47 +520,47 @@
           }
         }
       },
-      "ApiAuth.Aplicacion/1.0.0": {
+      "ApiAuth.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "ApiAuth.Dominio": "1.0.0",
+          "ApiAuth.Domain": "1.0.0",
           "log4net": "2.0.15"
         },
         "compile": {
-          "bin/placeholder/ApiAuth.Aplicacion.dll": {}
+          "bin/placeholder/ApiAuth.Application.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ApiAuth.Aplicacion.dll": {}
+          "bin/placeholder/ApiAuth.Application.dll": {}
         }
       },
-      "ApiAuth.Dominio/1.0.0": {
+      "ApiAuth.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "log4net": "2.0.15"
         },
         "compile": {
-          "bin/placeholder/ApiAuth.Dominio.dll": {}
+          "bin/placeholder/ApiAuth.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ApiAuth.Dominio.dll": {}
+          "bin/placeholder/ApiAuth.Domain.dll": {}
         }
       },
-      "ApiAuth.Infraestructura/1.0.0": {
+      "ApiAuth.Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "ApiAuth.Dominio": "1.0.0",
+          "ApiAuth.Domain": "1.0.0",
           "Dapper": "2.0.123",
           "System.Data.SqlClient": "4.8.3",
           "log4net": "2.0.15"
         },
         "compile": {
-          "bin/placeholder/ApiAuth.Infraestructura.dll": {}
+          "bin/placeholder/ApiAuth.Infrastructure.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ApiAuth.Infraestructura.dll": {}
+          "bin/placeholder/ApiAuth.Infrastructure.dll": {}
         }
       }
     }
@@ -1406,27 +1406,27 @@
         "version.txt"
       ]
     },
-    "ApiAuth.Aplicacion/1.0.0": {
+    "ApiAuth.Application/1.0.0": {
       "type": "project",
-      "path": "../ApiAuth.Aplicacion/ApiAuth.Aplicacion.csproj",
-      "msbuildProject": "../ApiAuth.Aplicacion/ApiAuth.Aplicacion.csproj"
+      "path": "../ApiAuth.Aplicacion/ApiAuth.Application.csproj",
+      "msbuildProject": "../ApiAuth.Aplicacion/ApiAuth.Application.csproj"
     },
-    "ApiAuth.Dominio/1.0.0": {
+    "ApiAuth.Domain/1.0.0": {
       "type": "project",
-      "path": "../ApiAuth.Dominio/ApiAuth.Dominio.csproj",
-      "msbuildProject": "../ApiAuth.Dominio/ApiAuth.Dominio.csproj"
+      "path": "../ApiAuth.Dominio/ApiAuth.Domain.csproj",
+      "msbuildProject": "../ApiAuth.Dominio/ApiAuth.Domain.csproj"
     },
-    "ApiAuth.Infraestructura/1.0.0": {
+    "ApiAuth.Infrastructure/1.0.0": {
       "type": "project",
-      "path": "../ApiAuth.Infraestructura/ApiAuth.Infraestructura.csproj",
-      "msbuildProject": "../ApiAuth.Infraestructura/ApiAuth.Infraestructura.csproj"
+      "path": "../ApiAuth.Infraestructura/ApiAuth.Infrastructure.csproj",
+      "msbuildProject": "../ApiAuth.Infraestructura/ApiAuth.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "ApiAuth.Aplicacion >= 1.0.0",
-      "ApiAuth.Dominio >= 1.0.0",
-      "ApiAuth.Infraestructura >= 1.0.0",
+      "ApiAuth.Application >= 1.0.0",
+      "ApiAuth.Domain >= 1.0.0",
+      "ApiAuth.Infrastructure >= 1.0.0",
       "Microsoft.Extensions.Logging.Log4Net.AspNetCore >= 6.1.0",
       "Swashbuckle.AspNetCore >= 5.6.3",
       "log4net >= 2.0.15"
@@ -1470,14 +1470,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Aplicacion\\ApiAuth.Aplicacion.csproj": {
-              "projectPath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Aplicacion\\ApiAuth.Aplicacion.csproj"
+            "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Aplicacion\\ApiAuth.Application.csproj": {
+              "projectPath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Aplicacion\\ApiAuth.Application.csproj"
             },
-            "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Dominio.csproj": {
-              "projectPath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Dominio.csproj"
+            "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Domain.csproj": {
+              "projectPath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Domain.csproj"
             },
-            "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Infraestructura\\ApiAuth.Infraestructura.csproj": {
-              "projectPath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Infraestructura\\ApiAuth.Infraestructura.csproj"
+            "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Infraestructura\\ApiAuth.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Infraestructura\\ApiAuth.Infrastructure.csproj"
             }
           }
         }
