@@ -11,29 +11,30 @@ namespace ApiAuth.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        public readonly IServicioUsuario _servicioUsuario;
-        public UserController(IServicioUsuario servicioUsuario)
+        public readonly IServiceUser _serviceUser;
+
+        public UserController(IServiceUser serviceUser)
         {
-            _servicioUsuario = servicioUsuario;
+            _serviceUser = serviceUser;
         }
 
         [HttpPost("[action]")]
-        public IActionResult CrearUsuario(DtoUsuario dtoUsuario)
+        public IActionResult Create(DtoUser dtoUser)
         {
             try
             {
-                _servicioUsuario.CrearUsuario(dtoUsuario);
+                _serviceUser.CreateUser(dtoUser);
 
                 return ReturnResponseHttpSuccess();
             }
             catch (ExcepcionComun e)
             {
 
-                return ReturnResponseIncorrectCommon("CrearUsuario", e);
+                return ReturnResponseIncorrectCommon("Create User", e);
             }
             catch (Exception e)
             {
-                return RegresarRespuestaIncorrectaNoControlada("CrearUsuario", e);
+                return RegresarRespuestaIncorrectaNoControlada("Create User", e);
             }
         }
     }

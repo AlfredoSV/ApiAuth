@@ -4,8 +4,8 @@ using ApiAuth.Dominio;
 
 namespace ApiAuth.Aplicacion.IServicios
 {
-    public interface IServicioUsuario
+    public interface IServiceUser
     {
-        public void CrearUsuario(DtoUsuario dtoUsuario);
+        public void CreateUser(DtoUser dtoUser);
     }
 }

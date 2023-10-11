@@ -42,7 +42,7 @@ namespace ApiAuth
 
             services.AddTransient<IServicioCifrado, ServicioCifrado>();
 
-            services.AddTransient<IServicioUsuario, ServicioUsuario>();
+            services.AddTransient<IServiceUser, ServiceUser>();
 
             services.AddScoped(cadConex => new string(Configuration.GetConnectionString("bd")));
 

@@ -7,12 +7,12 @@ using Dominio.ExcepcionComun;
 
 namespace ApiAuth.Aplicacion.Servicios
 {
-    public class ServicioUsuario : IServicioUsuario
+    public class ServiceUser: IServiceUser
     {
         private readonly IRepositorioUsuarios _usuarios;
         private readonly IServicioCifrado _servicioCifrado;
 
-        public ServicioUsuario(IRepositorioUsuarios consultarUsuarios, IServicioCifrado servicioCifrado)
+        public ServiceUser(IRepositorioUsuarios consultarUsuarios, IServicioCifrado servicioCifrado)
         {
             _usuarios = consultarUsuarios;
             _servicioCifrado = servicioCifrado;
@@ -20,18 +20,18 @@ namespace ApiAuth.Aplicacion.Servicios
         }
 
 
-        public void CrearUsuario(DtoUsuario dtoUsuario)
+        public void CreateUser(DtoUser dtoUser)
         {
-            string passwordEncrypted = _servicioCifrado.Cifrar(dtoUsuario.ContraseniaUsuario);
+            string passwordEncrypted = _servicioCifrado.Cifrar(dtoUser.Password);
 
-            Usuario usuario = _usuarios.GetUserByEmail(dtoUsuario.CorreoUsuario);
+            User usuario = _usuarios.GetUserByEmail(dtoUser.Email);
 
             if (usuario != null) {
 
                 throw new ExcepcionComun("User was exist", "The user already exists, please enter another one.");
             }
 
-            _usuarios.GuardarNuevoUsuario(Usuario.Crear(dtoUsuario.CorreoUsuario, passwordEncrypted));
+            _usuarios.GuardarNuevoUsuario(User.Create(dtoUser.Email, passwordEncrypted));
             
         }
 

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ApiAuth.Aplicacion.Dtos
 {
-    public class DtoUsuario
+    public class DtoUser
     {
-        public string CorreoUsuario { get; set; }
-        public string ContraseniaUsuario { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

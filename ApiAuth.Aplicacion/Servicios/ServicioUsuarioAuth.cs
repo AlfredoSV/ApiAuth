@@ -25,25 +25,25 @@ namespace ApiAuth.Aplicacion
         {
             DateTime fechaAlta = DateTime.Now;
             Guid idToken = Guid.NewGuid();
-            Usuario usuarioRes = _usuarios.GetUserByEmail(usuario);
+            User usuarioRes = _usuarios.GetUserByEmail(usuario);
             DateTime fechaExpiracion = DateTime.Now.AddDays(1);
             string token = _servicioCifrado.Cifrar(_servicioToken.GenerarToken());
 
             if (usuarioRes == null)
                 throw new ExcepcionComun("Usuario no valido", "Credenciales no validas.");
 
-            if(!contrasenia.Equals(_servicioCifrado.Descifrar(usuarioRes.ContraseniaUsuario)))
+            if(!contrasenia.Equals(_servicioCifrado.Descifrar(usuarioRes.Password)))
                 throw new ExcepcionComun("Usuario no valido", "Credenciales no validas.");
 
-            UsuarioToken tokenUsuario = UsuarioToken.Create(idToken, usuarioRes.IdUsuario, token, fechaAlta, fechaExpiracion);
+            UsuarioToken tokenUsuario = UsuarioToken.Create(idToken, usuarioRes.IdUser, token, fechaAlta, fechaExpiracion);
 
-            _servicioToken.EliminarTokensAnterioresPorIdUsuario(usuarioRes.IdUsuario);
+            _servicioToken.EliminarTokensAnterioresPorIdUsuario(usuarioRes.IdUser);
             _servicioToken.GuardarNuevoTokenUsuario(tokenUsuario);
 
             DtoUsuarioLoginRespuesta dtoUsuarioRes = new DtoUsuarioLoginRespuesta()
             {
-                Id = usuarioRes.IdUsuario,
-                Correo = usuarioRes.CorreoUsuario,
+                Id = usuarioRes.IdUser,
+                Correo = usuarioRes.Email,
                 TokenSesion = tokenUsuario.Token
             };
 

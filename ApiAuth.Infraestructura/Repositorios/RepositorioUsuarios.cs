@@ -17,14 +17,14 @@ namespace ApiAuth.Infraestructura
         {
             _cadConex = cadConex;
         }
-        public Usuario GetUserByEmail(string correo)
+        public User GetUserByEmail(string correo)
         {
             var sql = @"SELECT idUsuario, correoUsuario,contraseniausuario from usuario where correoUsuario = @correoUsuario";
             try
             {
                 using (var con = new SqlConnection(_cadConex))
                 {
-                    return con.Query<Usuario>(sql, new { correoUsuario = correo }).FirstOrDefault();
+                    return con.Query<User>(sql, new { correoUsuario = correo }).FirstOrDefault();
 
                 }
             }
@@ -81,7 +81,7 @@ namespace ApiAuth.Infraestructura
             }
         }
 
-        public void GuardarNuevoUsuario(Usuario usuario)
+        public void GuardarNuevoUsuario(User usuario)
         {
             var sql = @"INSERT INTO usuario VALUES(@idUsuario, @correoUsuario, @contraseniaUsuario);";
             try
