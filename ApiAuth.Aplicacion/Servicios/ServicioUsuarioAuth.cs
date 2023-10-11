@@ -13,8 +13,8 @@ namespace ApiAuth.Aplicacion
     {
         private readonly IRepositorioUsuarios _usuarios;
         private readonly IServicioToken _servicioToken;
-        private readonly IServicioCifrado _servicioCifrado;
-        public ServicioUsuarioAuth(IRepositorioUsuarios consultarUsuarios, IServicioToken servicioToken,IServicioCifrado servicioCifrado)
+        private readonly IServiceEncrypted _servicioCifrado;
+        public ServicioUsuarioAuth(IRepositorioUsuarios consultarUsuarios, IServicioToken servicioToken,IServiceEncrypted servicioCifrado)
         {
             _usuarios = consultarUsuarios;
             _servicioToken = servicioToken;
@@ -27,12 +27,12 @@ namespace ApiAuth.Aplicacion
             Guid idToken = Guid.NewGuid();
             User usuarioRes = _usuarios.GetUserByEmail(usuario);
             DateTime fechaExpiracion = DateTime.Now.AddDays(1);
-            string token = _servicioCifrado.Cifrar(_servicioToken.GenerarToken());
+            string token = _servicioCifrado.Encrypted(_servicioToken.GenerarToken());
 
             if (usuarioRes == null)
                 throw new ExcepcionComun("Usuario no valido", "Credenciales no validas.");
 
-            if(!contrasenia.Equals(_servicioCifrado.Descifrar(usuarioRes.Password)))
+            if(!contrasenia.Equals(_servicioCifrado.Decrypt(usuarioRes.Password)))
                 throw new ExcepcionComun("Usuario no valido", "Credenciales no validas.");
 
             UsuarioToken tokenUsuario = UsuarioToken.Create(idToken, usuarioRes.IdUser, token, fechaAlta, fechaExpiracion);
@@ -57,11 +57,11 @@ namespace ApiAuth.Aplicacion
             UsuarioToken usuario = _servicioToken.ObtenerTokenPorIdUsuario(idUsuario);
             DateTime fechaActual = DateTime.Now;
 
-            if (!_servicioCifrado.CadenaEsBase64(token))
+            if (!_servicioCifrado.StrIsBase64(token))
                 throw new ExcepcionComun("Token no valido", "Este token no es valido, favor de generar otro");
 
-            string tokenEnviado = _servicioCifrado.Descifrar(token);
-            string tokenUsuario = _servicioCifrado.Descifrar(usuario.Token);
+            string tokenEnviado = _servicioCifrado.Decrypt(token);
+            string tokenUsuario = _servicioCifrado.Decrypt(usuario.Token);
 
             if (usuario == null)
                 throw new ExcepcionComun("Usuario no valido", "Este usuario no se encuentra registrado");

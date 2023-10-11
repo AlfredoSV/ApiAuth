@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ApiAuth.Aplicacion.IServicios
 {
-    public interface IServicioCifrado
+    public interface IServiceEncrypted
     {
-        string Cifrar(string cadena);
-        string Descifrar(string cadena);
-        bool CadenaEsBase64(string cadena);
+        string Encrypted(string str);
+        string Decrypt(string str);
+        bool StrIsBase64(string str);
     }
 }

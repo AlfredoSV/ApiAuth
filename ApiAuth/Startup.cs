@@ -5,17 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ApiAuth.Aplicacion;
 using ApiAuth.Dominio;
 using ApiAuth.Infraestructura;
 using ApiAuth.Aplicacion.IServicios;
-using ApiAuth.Aplicacion.Servicios;
+using ApiAuth.Aplicacion.Services;
 
 namespace ApiAuth
 {
@@ -40,7 +35,7 @@ namespace ApiAuth
 
             services.AddTransient<IServicioToken, ServicioToken>();
 
-            services.AddTransient<IServicioCifrado, ServicioCifrado>();
+            services.AddTransient<IServiceEncrypted, ServiceEncrypted>();
 
             services.AddTransient<IServiceUser, ServiceUser>();
 
