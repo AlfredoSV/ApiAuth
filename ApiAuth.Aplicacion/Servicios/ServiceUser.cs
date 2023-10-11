@@ -2,6 +2,7 @@
 using ApiAuth.Aplicacion.IServicios;
 using ApiAuth.Dominio;
 using Dominio.ExcepcionComun;
+using System.Threading.Tasks;
 
 //It is necessary to move all the code to English.
 
@@ -19,11 +20,11 @@ namespace ApiAuth.Aplicacion.Services
             
         }
 
-        public void CreateUser(DtoUser dtoUser)
+        public async Task CreateUser(DtoUser dtoUser)
         {
             string passwordEncrypted = _serviceEncryp.Encrypted(dtoUser.Password);
 
-            User user = _users.GetUserByEmail(dtoUser.Email);
+            User user = await _users.GetUserByEmail(dtoUser.Email);
 
             if (user != null) {
 

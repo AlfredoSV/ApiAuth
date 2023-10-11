@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Linq;
-
+using System.Threading.Tasks;
 using ApiAuth.Dominio;
 using Dapper;
 using Dominio.ExcepcionComun;
@@ -16,7 +16,7 @@ namespace ApiAuth.Infrastructure
             _cadConex = cadConex;
         }
 
-        public User GetUserByEmail(string email)
+        public async Task<User> GetUserByEmail(string email)
         {
             string  sql =
             @"SELECT id, email,password from userApi where email = @email";
@@ -24,7 +24,7 @@ namespace ApiAuth.Infrastructure
             {
                 using (var con = new SqlConnection(_cadConex))
                 {
-                    return con.Query<User>(sql, new { email }).FirstOrDefault();
+                    return (await con.QueryAsync<User>(sql, new { email })).FirstOrDefault();
 
                 }
             }
@@ -65,6 +65,7 @@ namespace ApiAuth.Infrastructure
                 throw new ExcepcionComun("GetTokenByUserId", e.Message);
             }
         }
+
         public void DeleteTokensByUserId(Guid userId)
         {
             var sql = @"delete from userToken where userId = @userId;";

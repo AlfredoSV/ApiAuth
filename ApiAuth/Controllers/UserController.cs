@@ -4,7 +4,7 @@ using Dominio.ExcepcionComun;
 using log4net;
 using Microsoft.AspNetCore.Mvc;
 using System;
-
+using System.Threading.Tasks;
 
 namespace ApiAuth.Controllers
 {
@@ -22,11 +22,11 @@ namespace ApiAuth.Controllers
         }
 
         [HttpPost("[action]")]
-        public IActionResult Create(DtoUser dtoUser)
+        public async Task<ActionResult> Create(DtoUser dtoUser)
         {
             try
             {
-                _serviceUser.CreateUser(dtoUser);
+                await _serviceUser.CreateUser(dtoUser);
 
                 return ReturnResponseHttpSuccess();
             }

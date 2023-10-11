@@ -1,11 +1,11 @@
 ﻿using ApiAuth.Aplicacion.Dtos;
 using ApiAuth.Dominio;
-
+using System.Threading.Tasks;
 
 namespace ApiAuth.Aplicacion.IServicios
 {
     public interface IServiceUser
     {
-        public void CreateUser(DtoUser dtoUser);
+        public Task CreateUser(DtoUser dtoUser);
     }
 }

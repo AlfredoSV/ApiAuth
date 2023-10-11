@@ -3,6 +3,7 @@ using ApiAuth.Aplicacion;
 using System;
 using Dominio.ExcepcionComun;
 using log4net;
+using System.Threading.Tasks;
 
 namespace ApiAuth.Controllers
 {
@@ -20,12 +21,12 @@ namespace ApiAuth.Controllers
         }
 
         [HttpPost("[action]")]
-        public ActionResult<DtoUsuarioLoginRespuesta> UserAuth(DtoUserLogin dtoUserLogin)
+        public async Task<ActionResult<DtoUsuarioLoginRespuesta>>UserAuth(DtoUserLogin dtoUserLogin)
         {
             try
             {
 
-                return Ok(_servicioUsuarioAuth.ValidarUsuario(dtoUserLogin.Email, dtoUserLogin.Password));
+                return Ok(await _servicioUsuarioAuth.ValidarUsuario(dtoUserLogin.Email, dtoUserLogin.Password));
             }
             catch (ExcepcionComun e)
             {

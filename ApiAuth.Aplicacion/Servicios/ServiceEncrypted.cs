@@ -3,7 +3,7 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-
+using System.Threading.Tasks;
 
 namespace ApiAuth.Aplicacion.Services
 {

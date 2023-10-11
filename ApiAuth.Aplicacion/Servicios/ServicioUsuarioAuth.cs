@@ -21,11 +21,11 @@ namespace ApiAuth.Aplicacion
             _servicioCifrado = servicioCifrado;
         }
 
-        public DtoUsuarioLoginRespuesta ValidarUsuario(string usuario, string contrasenia)
+        public async Task<DtoUsuarioLoginRespuesta> ValidarUsuario(string usuario, string contrasenia)
         {
             DateTime fechaAlta = DateTime.Now;
             Guid idToken = Guid.NewGuid();
-            User usuarioRes = _usuarios.GetUserByEmail(usuario);
+            User usuarioRes = await _usuarios.GetUserByEmail(usuario);
             DateTime fechaExpiracion = DateTime.Now.AddDays(1);
             string token = _servicioCifrado.Encrypted(_servicioToken.GenerarToken());
 

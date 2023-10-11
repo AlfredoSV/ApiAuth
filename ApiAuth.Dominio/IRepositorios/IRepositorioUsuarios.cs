@@ -16,6 +16,6 @@ namespace ApiAuth.Dominio
 
         void SaveUser(User user);
 
-        User GetUserByEmail(string email);
+        Task<User> GetUserByEmail(string email);
     }
 }
