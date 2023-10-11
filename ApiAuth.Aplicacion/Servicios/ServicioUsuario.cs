@@ -1,11 +1,9 @@
 ﻿using ApiAuth.Aplicacion.Dtos;
 using ApiAuth.Aplicacion.IServicios;
 using ApiAuth.Dominio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Dominio.ExcepcionComun;
+
+//It is necessary to move all the code to English.
 
 namespace ApiAuth.Aplicacion.Servicios
 {
@@ -20,12 +18,23 @@ namespace ApiAuth.Aplicacion.Servicios
             _servicioCifrado = servicioCifrado;
             
         }
+
+
         public void CrearUsuario(DtoUsuario dtoUsuario)
         {
-            string contraseniaCifrada = _servicioCifrado.Cifrar(dtoUsuario.ContraseniaUsuario);
+            string passwordEncrypted = _servicioCifrado.Cifrar(dtoUsuario.ContraseniaUsuario);
 
-            _usuarios.GuardarNuevoUsuario(Usuario.Crear(dtoUsuario.CorreoUsuario, contraseniaCifrada));
+            Usuario usuario = _usuarios.GetUserByEmail(dtoUsuario.CorreoUsuario);
+
+            if (usuario != null) {
+
+                throw new ExcepcionComun("User was exist", "The user already exists, please enter another one.");
+            }
+
+            _usuarios.GuardarNuevoUsuario(Usuario.Crear(dtoUsuario.CorreoUsuario, passwordEncrypted));
             
         }
+
+   
     }
 }

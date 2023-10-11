@@ -2,7 +2,6 @@
 using ApiAuth.Aplicacion;
 using System;
 using Dominio.ExcepcionComun;
-using Microsoft.Extensions.Logging;
 using log4net;
 
 namespace ApiAuth.Controllers
@@ -24,8 +23,7 @@ namespace ApiAuth.Controllers
         {
             try
             {
-                throw new Exception("Prueba");
-                
+
                 return Json(_servicioUsuarioAuth.ValidarUsuario(dtoUsuatioLogin.CorreoUsuario, dtoUsuatioLogin.ContrasenaUsuario));
             }
             catch (ExcepcionComun e)

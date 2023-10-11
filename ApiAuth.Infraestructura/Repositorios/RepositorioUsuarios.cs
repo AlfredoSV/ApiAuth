@@ -17,7 +17,7 @@ namespace ApiAuth.Infraestructura
         {
             _cadConex = cadConex;
         }
-        public Usuario ObtenerUsuarioPorUsuarioYContrasenia(string correo)
+        public Usuario GetUserByEmail(string correo)
         {
             var sql = @"SELECT idUsuario, correoUsuario,contraseniausuario from usuario where correoUsuario = @correoUsuario";
             try
@@ -96,5 +96,7 @@ namespace ApiAuth.Infraestructura
                 throw new ExcepcionComun("GuardarNuevoUsuario", e.Message);
             }
         }
+
+  
     }
 }
