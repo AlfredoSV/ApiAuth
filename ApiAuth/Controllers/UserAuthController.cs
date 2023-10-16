@@ -4,6 +4,7 @@ using System;
 using Dominio.ExcepcionComun;
 using log4net;
 using System.Threading.Tasks;
+using ApiAuth.Application;
 
 namespace ApiAuth.Controllers
 {
@@ -11,12 +12,12 @@ namespace ApiAuth.Controllers
     [ApiController]
     public class UserAuthController : ControllerBase
     {
-        public readonly IServicioUsuarioAuth _servicioUsuarioAuth;
+        public readonly IServiceUserAuth _serviceUserAuth;
         private readonly ILog _logger;
-        public UserAuthController(IServicioUsuarioAuth servicioUsuarioAuth)
+        public UserAuthController(IServiceUserAuth serviceUserAuth)
         {
             _logger = LogManager.GetLogger(typeof(UserAuthController));
-            _servicioUsuarioAuth = servicioUsuarioAuth;
+            _serviceUserAuth = serviceUserAuth;
             
         }
 
@@ -26,7 +27,7 @@ namespace ApiAuth.Controllers
             try
             {
 
-                return Ok(await _servicioUsuarioAuth.ValidarUsuario(dtoUserLogin.Email, dtoUserLogin.Password));
+                return Ok(await _serviceUserAuth.ValidateUser(dtoUserLogin.Email, dtoUserLogin.Password));
             }
             catch (ExcepcionComun e)
             {
@@ -46,7 +47,7 @@ namespace ApiAuth.Controllers
         {
             try
             {
-                _servicioUsuarioAuth.ValidarToken(dtoUserToken.Id, dtoUserToken.Token);
+                _serviceUserAuth.ValidateToken(dtoUserToken.Id, dtoUserToken.Token);
                 return ReturnResponseHttpSuccess();
             }
             catch (ExcepcionComun e)

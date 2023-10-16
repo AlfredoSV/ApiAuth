@@ -1,38 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿
 using ApiAuth.Dominio;
 using System.Threading.Tasks;
 using Dominio.ExcepcionComun;
 using ApiAuth.Aplicacion.IServicios;
+using ApiAuth.Aplicacion;
+using System;
 
-namespace ApiAuth.Aplicacion
+namespace ApiAuth.Application
 {
-    public class ServicioUsuarioAuth : IServicioUsuarioAuth
+    public class ServiceUserAuth : IServiceUserAuth
     {
         private readonly IRepositorioUsuarios _usuarios;
         private readonly IServicioToken _servicioToken;
         private readonly IServiceEncrypted _servicioCifrado;
-        public ServicioUsuarioAuth(IRepositorioUsuarios consultarUsuarios, IServicioToken servicioToken,IServiceEncrypted servicioCifrado)
+        public ServiceUserAuth(IRepositorioUsuarios consultarUsuarios, IServicioToken servicioToken,IServiceEncrypted servicioCifrado)
         {
             _usuarios = consultarUsuarios;
             _servicioToken = servicioToken;
             _servicioCifrado = servicioCifrado;
         }
 
-        public async Task<DtoUsuarioLoginRespuesta> ValidarUsuario(string usuario, string contrasenia)
+        public async Task<DtoUsuarioLoginRespuesta> ValidateUser(string user, string password)
         {
             DateTime fechaAlta = DateTime.Now;
             Guid idToken = Guid.NewGuid();
-            User usuarioRes = await _usuarios.GetUserByEmail(usuario);
+            User usuarioRes = await _usuarios.GetUserByEmail(user);
             DateTime fechaExpiracion = DateTime.Now.AddDays(1);
             string token = _servicioCifrado.Encrypted(_servicioToken.GenerarToken());
 
             if (usuarioRes == null)
                 throw new ExcepcionComun("Usuario no valido", "Credenciales no validas.");
 
-            if(!contrasenia.Equals(_servicioCifrado.Decrypt(usuarioRes.Password)))
+            if(!password.Equals(_servicioCifrado.Decrypt(usuarioRes.Password)))
                 throw new ExcepcionComun("Usuario no valido", "Credenciales no validas.");
 
             UserToken userToken = UserToken.Create(idToken, usuarioRes.Id, token, fechaAlta, fechaExpiracion);
@@ -51,10 +50,10 @@ namespace ApiAuth.Aplicacion
 
         }
 
-        public void ValidarToken(Guid idUsuario, string token)
+        public void ValidateToken(Guid userId, string token)
         {
 
-            UserToken usuario = _servicioToken.ObtenerTokenPorIdUsuario(idUsuario);
+            UserToken usuario = _servicioToken.ObtenerTokenPorIdUsuario(userId);
             DateTime fechaActual = DateTime.Now;
 
             if (!_servicioCifrado.StrIsBase64(token))
@@ -74,5 +73,7 @@ namespace ApiAuth.Aplicacion
 
 
         }
+
+  
     }
 }

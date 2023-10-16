@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,6 +9,7 @@ using ApiAuth.Dominio;
 using ApiAuth.Infrastructure;
 using ApiAuth.Aplicacion.IServicios;
 using ApiAuth.Aplicacion.Services;
+using ApiAuth.Application;
 
 namespace ApiAuth
 {
@@ -29,7 +28,7 @@ namespace ApiAuth
         public void ConfigureServices(IServiceCollection services)
         {
        
-            services.AddTransient<IServicioUsuarioAuth, ServicioUsuarioAuth>();
+            services.AddTransient<IServiceUserAuth, ServiceUserAuth>();
 
             services.AddTransient<IRepositorioUsuarios, RepositorioUsuarios>();
 
