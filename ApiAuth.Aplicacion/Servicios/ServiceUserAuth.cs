@@ -11,9 +11,9 @@ namespace ApiAuth.Application
     public class ServiceUserAuth : IServiceUserAuth
     {
         private readonly IRepositorioUsuarios _usuarios;
-        private readonly IServicioToken _servicioToken;
+        private readonly IServiceToken _servicioToken;
         private readonly IServiceEncrypted _servicioCifrado;
-        public ServiceUserAuth(IRepositorioUsuarios consultarUsuarios, IServicioToken servicioToken,IServiceEncrypted servicioCifrado)
+        public ServiceUserAuth(IRepositorioUsuarios consultarUsuarios, IServiceToken servicioToken,IServiceEncrypted servicioCifrado)
         {
             _usuarios = consultarUsuarios;
             _servicioToken = servicioToken;
@@ -26,7 +26,7 @@ namespace ApiAuth.Application
             Guid idToken = Guid.NewGuid();
             User usuarioRes = await _usuarios.GetUserByEmail(user);
             DateTime fechaExpiracion = DateTime.Now.AddDays(1);
-            string token = _servicioCifrado.Encrypted(_servicioToken.GenerarToken());
+            string token = _servicioCifrado.Encrypted(_servicioToken.GenerateToken());
 
             if (usuarioRes == null)
                 throw new ExcepcionComun("Usuario no valido", "Credenciales no validas.");
@@ -36,8 +36,8 @@ namespace ApiAuth.Application
 
             UserToken userToken = UserToken.Create(idToken, usuarioRes.Id, token, fechaAlta, fechaExpiracion);
 
-            _servicioToken.EliminarTokensAnterioresPorIdUsuario(usuarioRes.Id);
-            _servicioToken.GuardarNuevoTokenUsuario(userToken);
+            _servicioToken.DeleteTokensPreviousByUserId(usuarioRes.Id);
+            _servicioToken.SaveNewToken(userToken);
 
             DtoUsuarioLoginRespuesta dtoUsuarioRes = new DtoUsuarioLoginRespuesta()
             {
@@ -53,7 +53,7 @@ namespace ApiAuth.Application
         public void ValidateToken(Guid userId, string token)
         {
 
-            UserToken usuario = _servicioToken.ObtenerTokenPorIdUsuario(userId);
+            UserToken usuario = _servicioToken.GetTokenByUserId(userId);
             DateTime fechaActual = DateTime.Now;
 
             if (!_servicioCifrado.StrIsBase64(token))

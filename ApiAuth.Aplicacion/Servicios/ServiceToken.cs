@@ -1,22 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using ApiAuth.Dominio;
-using System.Threading.Tasks;
 
-namespace ApiAuth.Aplicacion
+
+namespace ApiAuth.Application
 {
-    public class ServicioToken : IServicioToken
+    public class ServiceToken : IServiceToken
     {
         private IRepositorioUsuarios _usuarios { get; set; }
 
-        public ServicioToken(IRepositorioUsuarios consultarUsuarios)
+        public ServiceToken(IRepositorioUsuarios consultarUsuarios)
         {
             _usuarios = consultarUsuarios;
 
         }
-        public string GenerarToken()
+        public string GenerateToken()
         {
             string token = string.Empty;
             DateTime fecha = DateTime.Now;
@@ -29,17 +26,17 @@ namespace ApiAuth.Aplicacion
             return token;
         }
 
-        public void GuardarNuevoTokenUsuario(UserToken token)
+        public void SaveNewToken(UserToken token)
         {
             _usuarios.SaveToken(token);
         }
 
-        public void EliminarTokensAnterioresPorIdUsuario(Guid idUsuario)
+        public void DeleteTokensPreviousByUserId(Guid idUsuario)
         {
             _usuarios.DeleteTokensByUserId(idUsuario);
         }
 
-        public UserToken ObtenerTokenPorIdUsuario(Guid idUsuario)
+        public UserToken GetTokenByUserId(Guid idUsuario)
         {
             return _usuarios.GetTokenByUserId(idUsuario);
         }

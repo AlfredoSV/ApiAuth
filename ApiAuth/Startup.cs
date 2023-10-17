@@ -32,7 +32,7 @@ namespace ApiAuth
 
             services.AddTransient<IRepositorioUsuarios, RepositorioUsuarios>();
 
-            services.AddTransient<IServicioToken, ServicioToken>();
+            services.AddTransient<IServiceToken, ServiceToken>();
 
             services.AddTransient<IServiceEncrypted, ServiceEncrypted>();
 
