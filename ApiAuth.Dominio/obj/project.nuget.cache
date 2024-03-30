@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7txCh02bMEK16UAaZbHAxddAKUfuwV05DoN4VUjsliYm9Jef/j3Y6kXHs/+C9t1dZTd+l2MswaISHeDto6qY2A==",
+  "dgSpecHash": "5RQokGmbYynBGk6dR5qsTu+NorzwVBTeyMB5Vdx6FBB1lxzhWDSehSyzkVDqJyWx11Im7rHSLJbpCtE66zXUoQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\alfre\\OneDrive\\Documents\\GitHub\\ApiAuth\\ApiAuth.Dominio\\ApiAuth.Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\alfre\\.nuget\\packages\\log4net\\2.0.15\\log4net.2.0.15.nupkg.sha512",
+    "C:\\Users\\alfre\\.nuget\\packages\\log4net\\2.0.17\\log4net.2.0.17.nupkg.sha512",
     "C:\\Users\\alfre\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "C:\\Users\\alfre\\.nuget\\packages\\system.configuration.configurationmanager\\4.5.0\\system.configuration.configurationmanager.4.5.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
