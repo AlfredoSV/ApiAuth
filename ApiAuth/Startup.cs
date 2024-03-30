@@ -1,94 +1,71 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
-using ApiAuth.Aplicacion;
-using ApiAuth.Dominio;
-using ApiAuth.Infrastructure;
 using ApiAuth.Aplicacion.IServicios;
 using ApiAuth.Aplicacion.Services;
 using ApiAuth.Application;
+using ApiAuth.Controllers;
+using ApiAuth.Dominio;
+using ApiAuth.Infrastructure;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 
-namespace ApiAuth
+var builder = WebApplication.CreateBuilder(args);
+
+string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+builder.Services.AddTransient<IServiceUserAuth, ServiceUserAuth>();
+
+builder.Services.AddTransient<IRepositorioUsuarios, RepositorioUsuarios>();
+
+builder.Services.AddTransient<IServiceToken, ServiceToken>();
+
+builder.Services.AddTransient<IServiceEncrypted, ServiceEncrypted>();
+
+builder.Services.AddTransient<IServiceUser, ServiceUser>();
+
+builder.Services.AddScoped(cadConex => new string(builder.Configuration.GetSection("ConnectionStrings:bd").Value));
+
+//builder.
+
+//builder.Services.AddCors(options =>
+//{
+
+//    options.AddPolicy(name: MyAllowSpecificOrigins,
+//        builder =>
+//        {
+//            builder.WithOrigins("https://localhost:44357/");
+//        });
+
+//});
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+var app = builder.Build();
+
+//app.UseDeveloperExceptionPage();
+app.UseSwagger();
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiAuth v1"));
+
+var versionGroup = app.MapGroup("version").WithTags("version");
+
+versionGroup.MapGet("/", () =>
 {
-    public class Startup
-    {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+    return TypedResults.Ok("1.0.0");
+});
 
-        public IConfiguration Configuration { get; }
+var userAuth = app.MapGroup("userAuth").WithTags("userAuth");
 
-        string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+userAuth.MapPost("/", UserAuthHandler.UserAuth);
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-       
-            services.AddTransient<IServiceUserAuth, ServiceUserAuth>();
+var userApi = app.MapGroup("user").WithTags("user");
 
-            services.AddTransient<IRepositorioUsuarios, RepositorioUsuarios>();
+userApi.MapPost("/", UserHandler.Create);
 
-            services.AddTransient<IServiceToken, ServiceToken>();
+app.UseHttpsRedirection();
 
-            services.AddTransient<IServiceEncrypted, ServiceEncrypted>();
-
-            services.AddTransient<IServiceUser, ServiceUser>();
-
-            services.AddScoped(cadConex => new string(Configuration.GetConnectionString("bd")));
+app.UseRouting();
 
 
+//app.UseCors(MyAllowSpecificOrigins);
 
-            services.AddCors(options =>
-            {
-
-                options.AddPolicy(name: MyAllowSpecificOrigins,
-                    builder =>
-                    {
-                        builder.WithOrigins("https://localhost:44357/");
-                    });
-
-            });
-
-            services.AddControllers();
-
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiAuth", Version = "v1" });
-            });
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiAuth v1"));
-            }
-            else if(env.IsProduction())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiAuth v1"));
-            }
-
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseCors(MyAllowSpecificOrigins);
-
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-        }
-    }
-}
+app.Run();
